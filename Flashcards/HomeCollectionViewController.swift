@@ -11,23 +11,21 @@ import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    let applicationDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet var FlashcardsCollectionView: UICollectionView!
+    
+    var flashcards = [String]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         FlashcardsCollectionView.delegate = self
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.FlashcardsCollectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cardCell")
-
-        // Do any additional setup after loading the view.
+        flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
+        flashcards.sort{ $0 < $1 }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     /*
@@ -50,7 +48,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 3
+        return flashcards.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

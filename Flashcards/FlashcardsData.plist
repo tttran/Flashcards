@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Biology</key>
+	<dict>
+		<key>Mitochondria</key>
+		<array>
+			<string>Term</string>
+			<string>Definition</string>
+			<string>Part of Speech</string>
+		</array>
+	</dict>
+	<key>Computer Science</key>
+	<dict>
+		<key>Abstraction</key>
+		<array>
+			<string>Term</string>
+			<string>Definition</string>
+			<string>Part of Speech</string>
+		</array>
+	</dict>
+</dict>
+</plist>

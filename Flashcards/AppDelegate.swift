@@ -12,16 +12,44 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var dict_Flashcards: NSMutableDictionary = NSMutableDictionary()
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentDirectoryPath = paths[0] as String
+        let plistFilePathInDocumentDirectory = documentDirectoryPath + "/FlashcardsData.plist"
+        let dictionaryFromFile: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInDocumentDirectory)
+
+        if let dictionaryFromFileInDocumentDirectory = dictionaryFromFile {
+            
+            dict_Flashcards = dictionaryFromFileInDocumentDirectory
+            
+        } else {
+            // FlashcardsData.plist does not exist in the Document directory; Read it from the main bundle.
+            // Obtain the file path to the plist file in the mainBundle (project folder)
+            let plistFilePathInMainBundle = Bundle.main.path(forResource: "FlashcardsData", ofType: "plist")
+            
+            // Instantiate an NSMutableDictionary object and initialize it with the contents of the CountryCities.plist file.
+            let dictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInMainBundle!)
+            
+            // Store the object reference into the instance variable
+            dict_Flashcards = dictionaryFromFileInMainBundle!
+        }
         return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentDirectoryPath = paths[0] as String
+        let plistFilePathInDocumentDirectory = documentDirectoryPath + "/FlashcardsData.plist"
+        
+        dict_Flashcards.write(toFile: plistFilePathInDocumentDirectory, atomically: true)
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
