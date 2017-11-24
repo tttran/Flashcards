@@ -11,6 +11,8 @@
 		A12ABC5F1FC887DB001C06D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12ABC5D1FC887DB001C06D4 /* Main.storyboard */; };
 		A12ABC611FC887DB001C06D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A12ABC601FC887DB001C06D4 /* Assets.xcassets */; };
 		A12ABC641FC887DB001C06D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12ABC621FC887DB001C06D4 /* LaunchScreen.storyboard */; };
+		A12ABC6C1FC88AA0001C06D4 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12ABC6B1FC88AA0001C06D4 /* HomeCollectionViewController.swift */; };
+		A12ABC6E1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12ABC6D1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		A12ABC601FC887DB001C06D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A12ABC631FC887DB001C06D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A12ABC651FC887DB001C06D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A12ABC6B1FC88AA0001C06D4 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		A12ABC6D1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				A12ABC571FC887DB001C06D4 /* AppDelegate.swift */,
+				A12ABC6B1FC88AA0001C06D4 /* HomeCollectionViewController.swift */,
+				A12ABC6D1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift */,
 				A12ABC5D1FC887DB001C06D4 /* Main.storyboard */,
 				A12ABC601FC887DB001C06D4 /* Assets.xcassets */,
 				A12ABC621FC887DB001C06D4 /* LaunchScreen.storyboard */,
@@ -134,6 +140,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A12ABC581FC887DB001C06D4 /* AppDelegate.swift in Sources */,
+				A12ABC6C1FC88AA0001C06D4 /* HomeCollectionViewController.swift in Sources */,
+				A12ABC6E1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,11 +281,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U3465V32BF;
 				INFOPLIST_FILE = Flashcards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.timothytran.Flashcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -288,11 +297,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U3465V32BF;
 				INFOPLIST_FILE = Flashcards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.timothytran.Flashcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
