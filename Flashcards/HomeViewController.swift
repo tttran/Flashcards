@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     //variables for voice control
     let screenSize: CGRect = UIScreen.main.bounds
-    var voiceButton = UIButton()
+    @IBOutlet weak var voiceButton = UIButton()
     var speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
@@ -38,14 +38,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         FlashcardsCollectionView.delegate = self
         flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
         flashcards.sort{ $0 < $1 }
-        voiceUIView?.isHidden = true
+        voiceUIView?.isHidden = false
         voiceCancelTransparentView?.isHidden = true
         
         //voice button modifications
-        voiceButton.frame = CGRect(x: screenSize.width / 2 - 30, y: screenSize.height - 120, width: 60, height: 60)
-        voiceButton.backgroundColor = UIColor.black
-        voiceButton.layer.cornerRadius = 0.5 * voiceButton.bounds.size.width
-        self.view.addSubview(voiceButton)
+        voiceButton?.backgroundColor = UIColor.black
+        voiceButton?.layer.cornerRadius = 0.5 * (voiceButton?.bounds.size.width)!
+        let rec = UILongPressGestureRecognizer(target: self, action: #selector(record))
+        rec.minimumPressDuration = 0.2
+        voiceButton?.addGestureRecognizer(rec)
+        
+        self.view.addSubview(voiceButton!)
     }
 
     override func didReceiveMemoryWarning() {

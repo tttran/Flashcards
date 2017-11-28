@@ -92,6 +92,14 @@
                                     <constraint firstAttribute="height" constant="124" id="4Rg-9S-DUl"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SX-0l-iyW">
+                                <rect key="frame" x="157" y="548" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="3nI-71-0CD"/>
+                                    <constraint firstAttribute="height" constant="60" id="olq-YB-pqK"/>
+                                </constraints>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -100,11 +108,14 @@
                             <constraint firstItem="Qfg-VY-Vxf" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="El7-9z-xMh"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="JuH-J0-i55"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="bottom" secondItem="mzf-N4-GD9" secondAttribute="bottom" id="MYb-Vs-mZV"/>
+                            <constraint firstItem="1SX-0l-iyW" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" constant="157" id="RQ4-8M-dQc"/>
                             <constraint firstItem="Qfg-VY-Vxf" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="eJP-Cm-fUT"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="top" secondItem="mzf-N4-GD9" secondAttribute="top" id="lfW-E1-7YE"/>
                             <constraint firstItem="xgJ-hJ-f2a" firstAttribute="top" secondItem="mzf-N4-GD9" secondAttribute="top" id="o8g-fE-JJH"/>
                             <constraint firstItem="xgJ-hJ-f2a" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="pNN-js-PcE"/>
                             <constraint firstItem="xgJ-hJ-f2a" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="qto-tv-evt"/>
+                            <constraint firstItem="mzf-N4-GD9" firstAttribute="bottom" secondItem="1SX-0l-iyW" secondAttribute="bottom" constant="10" id="s4c-ra-qHA"/>
+                            <constraint firstItem="mzf-N4-GD9" firstAttribute="trailing" secondItem="1SX-0l-iyW" secondAttribute="trailing" constant="158" id="tYR-wq-kED"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="ufP-01-EXa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mzf-N4-GD9"/>
@@ -112,6 +123,7 @@
                     <navigationItem key="navigationItem" title="Flashcards" id="Tie-Yl-yjS"/>
                     <connections>
                         <outlet property="FlashcardsCollectionView" destination="jAF-cN-cgS" id="BJe-8g-0ro"/>
+                        <outlet property="voiceButton" destination="1SX-0l-iyW" id="SrX-Gj-G56"/>
                         <outlet property="voiceCancelTransparentView" destination="xgJ-hJ-f2a" id="rHK-oF-2v3"/>
                         <outlet property="voiceTextView" destination="qPg-oK-ctb" id="ht2-a7-jh6"/>
                         <outlet property="voiceUIView" destination="Qfg-VY-Vxf" id="eEQ-jy-9s2"/>

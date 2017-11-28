@@ -23,13 +23,13 @@ extension HomeViewController {
     /*
      * this function starts/stops recording when the button is held down/released
      */
-    func record(gesture: UILongPressGestureRecognizer) {
-        if ((voiceUIView?.isHidden)!) {
+    @objc func record(gesture: UILongPressGestureRecognizer) {
+        if (!(voiceUIView?.isHidden)!) {
             if (gesture.state == .began) {
-                voiceButton.alpha = 0.5
+                voiceButton?.alpha = 0.5
                 startRecording()
             } else if (gesture.state == .ended){
-                voiceButton.alpha = 1.0
+                voiceButton?.alpha = 1.0
                 stopRecording()
             }
         }
@@ -48,11 +48,11 @@ extension HomeViewController {
                 case .authorized:
                     try! self.getInput()
                 case .denied:
-                    self.voiceButton.isHidden = true
+                    self.voiceButton?.isHidden = true
                 case .restricted:
-                    self.voiceButton.isHidden = true
+                    self.voiceButton?.isHidden = true
                 case .notDetermined:
-                    self.voiceButton.isHidden = true
+                    self.voiceButton?.isHidden = true
                 }
             }
         }
