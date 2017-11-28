@@ -72,12 +72,39 @@
                                     <outlet property="delegate" destination="wPh-wj-JpS" id="HAA-yo-Ghf"/>
                                 </connections>
                             </collectionView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgJ-hJ-f2a">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-VY-Vxf">
+                                <rect key="frame" x="0.0" y="494" width="375" height="124"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPg-oK-ctb">
+                                        <rect key="frame" x="170" y="8" width="197" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="4Rg-9S-DUl"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="bottom" secondItem="mzf-N4-GD9" secondAttribute="bottom" id="0lP-Md-F4b"/>
+                            <constraint firstItem="Qfg-VY-Vxf" firstAttribute="bottom" secondItem="mzf-N4-GD9" secondAttribute="bottom" id="Dz6-Wp-LHE"/>
+                            <constraint firstItem="Qfg-VY-Vxf" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="El7-9z-xMh"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="JuH-J0-i55"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="bottom" secondItem="mzf-N4-GD9" secondAttribute="bottom" id="MYb-Vs-mZV"/>
+                            <constraint firstItem="Qfg-VY-Vxf" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="eJP-Cm-fUT"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="top" secondItem="mzf-N4-GD9" secondAttribute="top" id="lfW-E1-7YE"/>
+                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="top" secondItem="mzf-N4-GD9" secondAttribute="top" id="o8g-fE-JJH"/>
+                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="pNN-js-PcE"/>
+                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="qto-tv-evt"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="ufP-01-EXa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mzf-N4-GD9"/>
@@ -85,7 +112,10 @@
                     <navigationItem key="navigationItem" title="Flashcards" id="Tie-Yl-yjS"/>
                     <connections>
                         <outlet property="FlashcardsCollectionView" destination="jAF-cN-cgS" id="BJe-8g-0ro"/>
-                        <segue destination="ULX-YY-u4P" kind="show" id="Lg4-Ro-u35"/>
+                        <outlet property="voiceCancelTransparentView" destination="xgJ-hJ-f2a" id="rHK-oF-2v3"/>
+                        <outlet property="voiceTextView" destination="qPg-oK-ctb" id="ht2-a7-jh6"/>
+                        <outlet property="voiceUIView" destination="Qfg-VY-Vxf" id="eEQ-jy-9s2"/>
+                        <segue destination="ULX-YY-u4P" kind="show" identifier="viewSet" id="Lg4-Ro-u35"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pT-G2-who" userLabel="First Responder" sceneMemberID="firstResponder"/>

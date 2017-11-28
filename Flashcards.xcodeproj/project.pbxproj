@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A117E5481FCDA94700DFD7DC /* HomeCollectionViewControllerVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117E5471FCDA94700DFD7DC /* HomeCollectionViewControllerVoice.swift */; };
+		A117E5481FCDA94700DFD7DC /* HomeViewControllerVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */; };
+		A117E54B1FCDABCD00DFD7DC /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A117E54A1FCDABC700DFD7DC /* Speech.framework */; };
+		A117E54D1FCDABEA00DFD7DC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A117E54C1FCDABE500DFD7DC /* AVFoundation.framework */; };
 		A12ABC581FC887DB001C06D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12ABC571FC887DB001C06D4 /* AppDelegate.swift */; };
 		A12ABC5F1FC887DB001C06D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12ABC5D1FC887DB001C06D4 /* Main.storyboard */; };
 		A12ABC611FC887DB001C06D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A12ABC601FC887DB001C06D4 /* Assets.xcassets */; };
@@ -18,7 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A117E5471FCDA94700DFD7DC /* HomeCollectionViewControllerVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewControllerVoice.swift; sourceTree = "<group>"; };
+		A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerVoice.swift; sourceTree = "<group>"; };
+		A117E54A1FCDABC700DFD7DC /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		A117E54C1FCDABE500DFD7DC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A12ABC541FC887DB001C06D4 /* Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12ABC571FC887DB001C06D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A12ABC5E1FC887DB001C06D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,17 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A117E54D1FCDABEA00DFD7DC /* AVFoundation.framework in Frameworks */,
+				A117E54B1FCDABCD00DFD7DC /* Speech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A117E5491FCDABC700DFD7DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A117E54C1FCDABE500DFD7DC /* AVFoundation.framework */,
+				A117E54A1FCDABC700DFD7DC /* Speech.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A12ABC4B1FC887DB001C06D4 = {
 			isa = PBXGroup;
 			children = (
 				A12ABC561FC887DB001C06D4 /* Flashcards */,
 				A12ABC551FC887DB001C06D4 /* Products */,
+				A117E5491FCDABC700DFD7DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,7 +79,7 @@
 				A151714A1FC8973000A0CDCF /* FlashcardsData.plist */,
 				A12ABC571FC887DB001C06D4 /* AppDelegate.swift */,
 				A12ABC6B1FC88AA0001C06D4 /* HomeViewController.swift */,
-				A117E5471FCDA94700DFD7DC /* HomeCollectionViewControllerVoice.swift */,
+				A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */,
 				A12ABC6D1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift */,
 				A12ABC5D1FC887DB001C06D4 /* Main.storyboard */,
 				A12ABC601FC887DB001C06D4 /* Assets.xcassets */,
@@ -146,7 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A117E5481FCDA94700DFD7DC /* HomeCollectionViewControllerVoice.swift in Sources */,
+				A117E5481FCDA94700DFD7DC /* HomeViewControllerVoice.swift in Sources */,
 				A12ABC581FC887DB001C06D4 /* AppDelegate.swift in Sources */,
 				A12ABC6C1FC88AA0001C06D4 /* HomeViewController.swift in Sources */,
 				A12ABC6E1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift in Sources */,

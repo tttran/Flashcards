@@ -7,10 +7,26 @@
 //
 
 import UIKit
+import Speech
 
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, SFSpeechRecognizerDelegate {
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    //variables for voice control
+    let screenSize: CGRect = UIScreen.main.bounds
+    var voiceButton = UIButton()
+    var speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
+    var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    var recognitionTask: SFSpeechRecognitionTask?
+    var audioEngine = AVAudioEngine()
+    var transcription = SFTranscription()
+    var command = ""
+   
+    @IBOutlet weak var voiceUIView = UIView()
+    @IBOutlet weak var voiceCancelTransparentView = UIView()
+    @IBOutlet weak var voiceTextView = UITextView()
 
+    
+    
     let applicationDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet var FlashcardsCollectionView: UICollectionView!
     
@@ -22,8 +38,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         FlashcardsCollectionView.delegate = self
         flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
         flashcards.sort{ $0 < $1 }
+        voiceUIView?.isHidden = true
+        voiceCancelTransparentView?.isHidden = true
         
-        
+        //voice button modifications
+        voiceButton.frame = CGRect(x: screenSize.width / 2 - 30, y: screenSize.height - 120, width: 60, height: 60)
+        voiceButton.backgroundColor = UIColor.black
+        voiceButton.layer.cornerRadius = 0.5 * voiceButton.bounds.size.width
+        self.view.addSubview(voiceButton)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,17 +72,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return flashcards.count
-        //return 20
+        //return flashcards.count
+        return 20
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cellNumber = (indexPath as NSIndexPath).row
+       // let cellNumber = (indexPath as NSIndexPath).row
 
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! FlashcardsCollectionViewCell
-        cell.title.text = flashcards[cellNumber]
+        //cell.title.text = flashcards[cellNumber]
         // Configure the cell
     
         return cell
