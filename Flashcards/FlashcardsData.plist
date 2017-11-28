@@ -11,6 +11,15 @@
 			<string>Part of Speech</string>
 		</array>
 	</dict>
+	<key>Math</key>
+	<dict>
+		<key>New item</key>
+		<array>
+			<string></string>
+			<string></string>
+			<string></string>
+		</array>
+	</dict>
 	<key>Computer Science</key>
 	<dict>
 		<key>Abstraction</key>
