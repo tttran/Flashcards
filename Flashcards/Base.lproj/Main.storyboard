@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -96,8 +97,8 @@
                                 <rect key="frame" x="157" y="548" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="3nI-71-0CD"/>
-                                    <constraint firstAttribute="height" constant="60" id="olq-YB-pqK"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="3nI-71-0CD"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="olq-YB-pqK"/>
                                 </constraints>
                             </button>
                         </subviews>
@@ -127,27 +128,49 @@
                         <outlet property="voiceCancelTransparentView" destination="xgJ-hJ-f2a" id="rHK-oF-2v3"/>
                         <outlet property="voiceTextView" destination="qPg-oK-ctb" id="ht2-a7-jh6"/>
                         <outlet property="voiceUIView" destination="Qfg-VY-Vxf" id="eEQ-jy-9s2"/>
-                        <segue destination="ULX-YY-u4P" kind="show" identifier="viewSet" id="Lg4-Ro-u35"/>
+                        <segue destination="oHU-4F-Z9B" kind="show" identifier="ShowWords" id="jbT-Ez-4HE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pT-G2-who" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1600.8" y="-133.5832083958021"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Bdn-yT-Wb3">
+        <!--Title-->
+        <scene sceneID="euT-Ih-TsI">
             <objects>
-                <viewController id="ULX-YY-u4P" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5pY-4I-JCr">
+                <tableViewController id="oHU-4F-Z9B" customClass="WordsTableViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YQu-9T-74L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="hYY-r7-mki"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ObS-XS-IX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordCell" id="pfX-nn-kQ2">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pfX-nn-kQ2" id="YLI-bo-nBa">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oHU-4F-Z9B" id="ydD-ui-hkd"/>
+                            <outlet property="delegate" destination="oHU-4F-Z9B" id="0JP-Ng-Pk0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="ryT-IM-Kbo">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="edit" id="Cje-jQ-sG8"/>
+                            <barButtonItem systemItem="add" id="P78-1g-Dz1"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="wordsTableView" destination="YQu-9T-74L" id="hcU-XJ-HkF"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfj-he-Eiv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2482" y="-133"/>
+            <point key="canvasLocation" x="2434" y="-133"/>
         </scene>
         <!--Home-->
         <scene sceneID="BDg-W3-ff0">

@@ -6,27 +6,63 @@
 	<dict>
 		<key>Mitochondria</key>
 		<array>
-			<string>Term</string>
-			<string>Definition</string>
-			<string>Part of Speech</string>
+			<string>Mitochondria</string>
+			<string>The mitochondria is the powerhouse of the cell.</string>
+			<string>Noun</string>
+		</array>
+		<key>Cytoplasm</key>
+		<array>
+			<string>Cytoplasm</string>
+			<string>stub</string>
+			<string>stubby</string>
+		</array>
+		<key>Ribosome</key>
+		<array>
+			<string>Ribosome</string>
+			<string>asdf</string>
+			<string>asdf</string>
 		</array>
 	</dict>
 	<key>Math</key>
 	<dict>
-		<key>New item</key>
+		<key>Addition</key>
 		<array>
-			<string></string>
-			<string></string>
-			<string></string>
+			<string>Addition</string>
+			<string>Combining numbers</string>
+			<string>Noun</string>
+		</array>
+		<key>Subtraction</key>
+		<array>
+			<string>Subtraction</string>
+			<string>Take away values</string>
+			<string>Noun</string>
+		</array>
+		<key>Division</key>
+		<array>
+			<string>Division</string>
+			<string>Split into categories</string>
+			<string>Noun</string>
 		</array>
 	</dict>
 	<key>Computer Science</key>
 	<dict>
 		<key>Abstraction</key>
 		<array>
-			<string>Term</string>
-			<string>Definition</string>
-			<string>Part of Speech</string>
+			<string>Abstraction</string>
+			<string>Abstraction is a technique for arranging complexity of computer systems</string>
+			<string>Noun</string>
+		</array>
+		<key>Polymorphism</key>
+		<array>
+			<string>Polymorphism</string>
+			<string>Polymorphism is the provision of a single interface to entities of different types.</string>
+			<string>Noun</string>
+		</array>
+		<key>Objects</key>
+		<array>
+			<string>Objects</string>
+			<string>Objects are instances of classes in object-oriented programming.</string>
+			<string>Noun</string>
 		</array>
 	</dict>
 </dict>

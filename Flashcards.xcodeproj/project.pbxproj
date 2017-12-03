@@ -17,6 +17,7 @@
 		A12ABC6C1FC88AA0001C06D4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12ABC6B1FC88AA0001C06D4 /* HomeViewController.swift */; };
 		A12ABC6E1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12ABC6D1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift */; };
 		A151714B1FC8973000A0CDCF /* FlashcardsData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A151714A1FC8973000A0CDCF /* FlashcardsData.plist */; };
+		A1FD1B7A1FD4823F00CD23C1 /* WordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD1B791FD4823F00CD23C1 /* WordsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A12ABC6B1FC88AA0001C06D4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A12ABC6D1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A151714A1FC8973000A0CDCF /* FlashcardsData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FlashcardsData.plist; sourceTree = "<group>"; };
+		A1FD1B791FD4823F00CD23C1 /* WordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				A12ABC6B1FC88AA0001C06D4 /* HomeViewController.swift */,
 				A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */,
 				A12ABC6D1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift */,
+				A1FD1B791FD4823F00CD23C1 /* WordsTableViewController.swift */,
 				A12ABC5D1FC887DB001C06D4 /* Main.storyboard */,
 				A12ABC601FC887DB001C06D4 /* Assets.xcassets */,
 				A12ABC621FC887DB001C06D4 /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 				A117E5481FCDA94700DFD7DC /* HomeViewControllerVoice.swift in Sources */,
 				A12ABC581FC887DB001C06D4 /* AppDelegate.swift in Sources */,
 				A12ABC6C1FC88AA0001C06D4 /* HomeViewController.swift in Sources */,
+				A1FD1B7A1FD4823F00CD23C1 /* WordsTableViewController.swift in Sources */,
 				A12ABC6E1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

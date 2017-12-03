@@ -31,14 +31,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet var FlashcardsCollectionView: UICollectionView!
     
     var flashcards = [String]()
-
+    var setToPass = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         FlashcardsCollectionView.delegate = self
         flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
         flashcards.sort{ $0 < $1 }
-        voiceUIView?.isHidden = false
+        voiceUIView?.isHidden = true
         voiceCancelTransparentView?.isHidden = true
         
         //voice button modifications
@@ -47,8 +47,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let rec = UILongPressGestureRecognizer(target: self, action: #selector(record))
         rec.minimumPressDuration = 0.2
         voiceButton?.addGestureRecognizer(rec)
-        
-        self.view.addSubview(voiceButton!)
+        //voiceButton?.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,22 +74,40 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        //return flashcards.count
-        return 20
+        return flashcards.count
+        //return 20
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-       // let cellNumber = (indexPath as NSIndexPath).row
+        let cellNumber = (indexPath as NSIndexPath).row
 
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! FlashcardsCollectionViewCell
-        //cell.title.text = flashcards[cellNumber]
+        cell.title.text = flashcards[cellNumber]
         // Configure the cell
     
         return cell
     }
 
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cellNumber = (indexPath as NSIndexPath).row
+        setToPass = flashcards[cellNumber]
+        performSegue(withIdentifier: "ShowWords", sender: self)
+    }
+    
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ShowWords" {
+            let wordTableViewController: WordsTableViewController = segue.destination as! WordsTableViewController
+            wordTableViewController.setPassed = setToPass
+        }
+    }
     // MARK: UICollectionViewDelegate
 
     /*
