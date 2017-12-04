@@ -9,7 +9,8 @@
 import UIKit
 
 class AddWordViewController: UIViewController {
-
+    @IBOutlet var newWordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

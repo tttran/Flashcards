@@ -42,7 +42,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         voiceCancelTransparentView?.isHidden = true
         
         //voice button modifications
-        voiceButton?.backgroundColor = UIColor.black
         voiceButton?.layer.cornerRadius = 0.5 * (voiceButton?.bounds.size.width)!
         let rec = UILongPressGestureRecognizer(target: self, action: #selector(record))
         rec.minimumPressDuration = 0.2

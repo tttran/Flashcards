@@ -267,10 +267,13 @@
                     <navigationItem key="navigationItem" title="Add Word" id="bG3-ch-HkP">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ses-LL-Msr">
                             <connections>
-                                <segue destination="XTH-8s-vHl" kind="unwind" unwindAction="unwindToWordsTableViewControllerWithSegue:" id="p2a-kf-otf"/>
+                                <segue destination="XTH-8s-vHl" kind="unwind" identifier="AddWord-Save" unwindAction="unwindToWordsTableViewControllerWithSegue:" id="Q2u-fS-T1m"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="newWordTextField" destination="xZc-DM-urz" id="Xt6-Hy-gNC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BN5-er-weg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XTH-8s-vHl" userLabel="Exit" sceneMemberID="exit"/>
