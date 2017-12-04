@@ -15,6 +15,7 @@ class WordsTableViewController: UITableViewController {
     var listOfWords = [String]()
     var words: NSDictionary = NSDictionary()
     var flashcards: NSDictionary = NSDictionary()
+    var wordInfoToPass = [String]()
     
 
     let applicationDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -65,6 +66,28 @@ class WordsTableViewController: UITableViewController {
     }
  
 
+    @IBAction func unwindToWordsTableViewController (segue : UIStoryboardSegue) {
+        if segue.identifier == "AddWord-Save" {
+            
+        }
+    }
+    
+    // Informs the table view delegate that the specified row is selected.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let rowNumber = (indexPath as NSIndexPath).row
+        //print(words)
+        let word = listOfWords[rowNumber]
+        wordInfoToPass = words[word] as! [String]
+        //let moviesOfGivenGenre = movies! as! NSDictionary
+        //let movieInfo = moviesOfGivenGenre["\(rowNumber+1)"] as? NSArray
+        
+        
+        wordsTableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        
+        performSegue(withIdentifier: "ViewWord", sender: self)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -100,14 +123,16 @@ class WordsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ViewWord" {
+            let viewWordViewController: ViewWordViewController = segue.destination as! ViewWordViewController
+            viewWordViewController.wordInfoPassed = wordInfoToPass
+        }
     }
-    */
+ 
 
 }

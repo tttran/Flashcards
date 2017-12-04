@@ -108,6 +108,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             wordTableViewController.setPassed = setToPass
         }
     }
+    
     // MARK: UICollectionViewDelegate
 
     /*
