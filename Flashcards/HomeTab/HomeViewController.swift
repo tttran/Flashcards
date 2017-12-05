@@ -40,14 +40,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         flashcards.sort{ $0 < $1 }
         voiceUIView?.isHidden = true
         voiceCancelTransparentView?.isHidden = true
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
-
         //voice button modifications
         voiceButton?.layer.cornerRadius = 0.5 * (voiceButton?.bounds.size.width)!
         let rec = UILongPressGestureRecognizer(target: self, action: #selector(record))
         rec.minimumPressDuration = 0.2
         voiceButton?.addGestureRecognizer(rec)
         //voiceButton?.isHidden = true
+        
+        
+        let addButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(HomeViewController.addSet(_:)))
+        self.navigationItem.rightBarButtonItem = addButton
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,6 +111,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let wordTableViewController: WordsTableViewController = segue.destination as! WordsTableViewController
             wordTableViewController.setPassed = setToPass
         }
+    }
+    
+    @objc func addSet(_ sender: AnyObject) {
+        
+        performSegue(withIdentifier: "AddSet", sender: self)
+        
+    }
+    
+    @IBAction func unwindToHomeViewController (segue : UIStoryboardSegue) {
+        if segue.identifier == "AddSet-Save" {
+    
+        }
+        
     }
     
     // MARK: UICollectionViewDelegate

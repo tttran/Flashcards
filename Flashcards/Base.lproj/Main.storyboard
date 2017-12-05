@@ -121,9 +121,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mzf-N4-GD9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Flashcards" id="Tie-Yl-yjS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6Ru-An-BLs"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Flashcards" id="Tie-Yl-yjS"/>
                     <connections>
                         <outlet property="FlashcardsCollectionView" destination="jAF-cN-cgS" id="BJe-8g-0ro"/>
                         <outlet property="voiceButton" destination="1SX-0l-iyW" id="SrX-Gj-G56"/>
@@ -131,13 +129,14 @@
                         <outlet property="voiceTextView" destination="qPg-oK-ctb" id="ht2-a7-jh6"/>
                         <outlet property="voiceUIView" destination="Qfg-VY-Vxf" id="eEQ-jy-9s2"/>
                         <segue destination="oHU-4F-Z9B" kind="show" identifier="ShowWords" id="jbT-Ez-4HE"/>
+                        <segue destination="yaP-Lf-RDd" kind="show" identifier="AddSet" id="ZTf-s3-bVf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pT-G2-who" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1600.8" y="-133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Set-->
         <scene sceneID="eWE-Ix-ivC">
             <objects>
                 <viewController id="yaP-Lf-RDd" sceneMemberID="viewController">
@@ -147,8 +146,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sdf-rl-Tbj"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Set" id="48T-rw-8vq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="oMx-s1-sdq">
+                            <connections>
+                                <segue destination="7tL-HW-wZl" kind="unwind" unwindAction="unwindToHomeViewControllerWithSegue:" id="aNp-f4-QRF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUW-p9-yIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7tL-HW-wZl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2433" y="-855"/>
         </scene>
@@ -301,7 +308,7 @@
         <scene sceneID="BDg-W3-ff0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="by3-fI-8d2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="4HX-Hb-3Jt"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="TabBarIcon-Home" id="4HX-Hb-3Jt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XtZ-9K-3OM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -336,7 +343,7 @@
         <scene sceneID="ghW-Px-zP1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kUw-EE-Bpq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Test Mode" id="DtQ-rE-D3z"/>
+                    <tabBarItem key="tabBarItem" title="Test Mode" image="TabBarIcon-TestMode" id="DtQ-rE-D3z"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3ZJ-bL-BCW">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -352,4 +359,8 @@
             <point key="canvasLocation" x="777.60000000000002" y="588.30584707646176"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TabBarIcon-Home" width="30" height="30"/>
+        <image name="TabBarIcon-TestMode" width="30" height="30"/>
+    </resources>
 </document>
