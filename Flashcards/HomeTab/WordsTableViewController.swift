@@ -92,7 +92,7 @@ class WordsTableViewController: UITableViewController {
 
             let session = URLSession.shared
             _ = session.dataTask(with: request, completionHandler: { data, response, error in
-                if let response = response,
+                if let _ = response,
                     let data = data,
                     let jsonData = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary {
                     let results = jsonData!["results"] as! NSArray
@@ -114,6 +114,7 @@ class WordsTableViewController: UITableViewController {
                     print(partOfSpeech)
                     
                     let newWordArray = [word!, definition as! String, partOfSpeech] as [String]
+                    
                     self.words.setValue(newWordArray, forKey: word!)
                     
                     

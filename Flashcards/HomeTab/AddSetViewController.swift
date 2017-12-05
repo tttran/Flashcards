@@ -9,7 +9,8 @@
 import UIKit
 
 class AddSetViewController: UIViewController {
-
+    @IBOutlet var addSetTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

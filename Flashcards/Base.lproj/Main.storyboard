@@ -139,25 +139,44 @@
         <!--Add Set-->
         <scene sceneID="eWE-Ix-ivC">
             <objects>
-                <viewController id="yaP-Lf-RDd" sceneMemberID="viewController">
+                <viewController id="yaP-Lf-RDd" customClass="AddSetViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Vk-1Q-SwM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter set name here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xbx-H1-tcJ">
+                                <rect key="frame" x="28" y="183" width="319" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter the set name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgP-7p-uVv">
+                                <rect key="frame" x="112" y="154" width="150" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="sdf-rl-Tbj"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Set" id="48T-rw-8vq">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="oMx-s1-sdq">
                             <connections>
-                                <segue destination="7tL-HW-wZl" kind="unwind" unwindAction="unwindToHomeViewControllerWithSegue:" id="aNp-f4-QRF"/>
+                                <segue destination="7tL-HW-wZl" kind="unwind" identifier="AddSet-Save" unwindAction="unwindToHomeViewControllerWithSegue:" id="aNp-f4-QRF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addSetTextField" destination="Xbx-H1-tcJ" id="AKE-Hg-wgg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUW-p9-yIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7tL-HW-wZl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2433" y="-855"/>
+            <point key="canvasLocation" x="2433" y="-906"/>
         </scene>
         <!--Title-->
         <scene sceneID="euT-Ih-TsI">

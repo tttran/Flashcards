@@ -121,7 +121,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBAction func unwindToHomeViewController (segue : UIStoryboardSegue) {
         if segue.identifier == "AddSet-Save" {
-    
+            let addSetViewController: AddSetViewController = segue.source as! AddSetViewController
+            let setName = addSetViewController.addSetTextField.text
+            self.applicationDelegate.dict_Flashcards.setValue([:] as NSMutableDictionary, forKey: setName!)
+            flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
+            flashcards.sort{ $0 < $1 }
+            //DispatchQueue.main.async {
+                self.FlashcardsCollectionView.reloadData()
+            //}
+
+            //self.flashcards = self.applicationDelegate.dict_Flashcards as NSDictionary
+            //self.words = (self.flashcards[self.setPassed] as! NSDictionary)
+            //self.listOfWords = self.words.allKeys as! [String]
+            //self.listOfWords.sort{ $0 < $1 }
+            
+            
         }
         
     }
