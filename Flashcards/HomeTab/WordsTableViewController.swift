@@ -108,68 +108,41 @@ class WordsTableViewController: UITableViewController {
                     let e = d[0] as! NSDictionary
                     let f = e["definitions"] as! NSArray
                     let definition = f[0]
-                    let partOfSpeech = a["lexicalCategory"]
+                    let partOfSpeech = a["lexicalCategory"] as! String
 
                     print(definition)
-                    print(partOfSpeech!)
+                    print(partOfSpeech)
+                    
+                    let newWordArray = [word!, definition as! String, partOfSpeech] as [String]
+                    self.words.setValue(newWordArray, forKey: word!)
                     
                     
-                    
-                    
+                    self.applicationDelegate.dict_Flashcards.setValue(self.words, forKey: self.setPassed)
+                    self.flashcards = self.applicationDelegate.dict_Flashcards as NSDictionary
+                    self.words = (self.flashcards[self.setPassed] as! NSDictionary)
+                    self.listOfWords = self.words.allKeys as! [String]
+                    self.listOfWords.sort{ $0 < $1 }
+                    DispatchQueue.main.async {
+                        self.wordsTableView.reloadData()
+                    }
+
                     
                 } else {
-                    print(error)
-                    print(NSString.init(data: data!, encoding: String.Encoding.utf8.rawValue))
+                    self.showAlertMessage(messageHeader: "No results found!", messageBody: "Please try a different word.")
                 }
             }).resume()
-            
-            
-            
-            
-            
-            
-            
-            /*let jsonData: Data?
-            do {
-                /*
-                 Try getting the JSON data from the URL and map it into virtual memory, if possible and safe.
-                 Option mappedIfSafe indicates that the file should be mapped into virtual memory, if possible and safe.
-                 */
-                jsonData = try Data(contentsOf: url!, options: NSData.ReadingOptions.mappedIfSafe)
-                
-            } catch let error as NSError {
-                
-                showAlertMessage(messageHeader: "JSON Data", messageBody: "Error in retrieving JSON data: \(error.localizedDescription)")
-                return
-            }
-            if let jsonDataFromApiUrl = jsonData {
-                do {
-                    let jsonDataDictionary = try JSONSerialization.jsonObject(with: jsonDataFromApiUrl, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
-                    
-                    // Typecast the returned NSDictionary as Dictionary<String, AnyObject>
-                    let dictionaryOfReturnedJsonData = jsonDataDictionary as! Dictionary<String, AnyObject>
-                    
-                }
-                
-                catch let error as NSError {
-                    showAlertMessage(messageHeader: "JSON Data", messageBody: "Error in JSON Data Serialization: \(error.localizedDescription)")
-                    return
-                }
-            }*/
-
 
         }
+
     }
     
     // Informs the table view delegate that the specified row is selected.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let rowNumber = (indexPath as NSIndexPath).row
-        //print(words)
         let word = listOfWords[rowNumber]
         wordInfoToPass = words[word] as! [String]
-        //let moviesOfGivenGenre = movies! as! NSDictionary
-        //let movieInfo = moviesOfGivenGenre["\(rowNumber+1)"] as? NSArray
+
         
         
         wordsTableView.deselectRow(at: indexPath as IndexPath, animated: true)

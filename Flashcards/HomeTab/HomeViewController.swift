@@ -40,7 +40,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         flashcards.sort{ $0 < $1 }
         voiceUIView?.isHidden = true
         voiceCancelTransparentView?.isHidden = true
-        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
+
         //voice button modifications
         voiceButton?.layer.cornerRadius = 0.5 * (voiceButton?.bounds.size.width)!
         let rec = UILongPressGestureRecognizer(target: self, action: #selector(record))

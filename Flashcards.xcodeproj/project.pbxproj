@@ -53,6 +53,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1166B661FD7125D00176812 /* HomeTab */ = {
+			isa = PBXGroup;
+			children = (
+				A12ABC6B1FC88AA0001C06D4 /* HomeViewController.swift */,
+				A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */,
+				A12ABC6D1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift */,
+				A1FD1B791FD4823F00CD23C1 /* WordsTableViewController.swift */,
+				A1FD1B7D1FD49F9E00CD23C1 /* ViewWordViewController.swift */,
+				A1FD1B7B1FD498C900CD23C1 /* AddWordViewController.swift */,
+			);
+			path = HomeTab;
+			sourceTree = "<group>";
+		};
 		A117E5491FCDABC700DFD7DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,12 +97,7 @@
 			children = (
 				A151714A1FC8973000A0CDCF /* FlashcardsData.plist */,
 				A12ABC571FC887DB001C06D4 /* AppDelegate.swift */,
-				A12ABC6B1FC88AA0001C06D4 /* HomeViewController.swift */,
-				A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */,
-				A12ABC6D1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift */,
-				A1FD1B791FD4823F00CD23C1 /* WordsTableViewController.swift */,
-				A1FD1B7D1FD49F9E00CD23C1 /* ViewWordViewController.swift */,
-				A1FD1B7B1FD498C900CD23C1 /* AddWordViewController.swift */,
+				A1166B661FD7125D00176812 /* HomeTab */,
 				A12ABC5D1FC887DB001C06D4 /* Main.storyboard */,
 				A12ABC601FC887DB001C06D4 /* Assets.xcassets */,
 				A12ABC621FC887DB001C06D4 /* LaunchScreen.storyboard */,
