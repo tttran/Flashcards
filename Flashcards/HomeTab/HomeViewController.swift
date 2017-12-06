@@ -130,12 +130,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if segue.identifier == "AddSet-Save" {
             let addSetViewController: AddSetViewController = segue.source as! AddSetViewController
             let setName = addSetViewController.addSetTextField.text
-            self.applicationDelegate.dict_Flashcards.setValue([:] as NSMutableDictionary, forKey: setName!)
-            flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
-            flashcards.sort{ $0 < $1 }
-            //DispatchQueue.main.async {
+            if setName == "" {
+                showAlertMessage(messageHeader: "Error!", messageBody: "Please enter a valid name.")
+            } else if self.applicationDelegate.dict_Flashcards[setName] != nil {
+                showAlertMessage(messageHeader: "Error!", messageBody: "The name already exists! Please enter a different one.")
+            } else {
+                self.applicationDelegate.dict_Flashcards.setValue([:] as NSMutableDictionary, forKey: setName!)
+                flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
+                flashcards.sort{ $0 < $1 }
+                //DispatchQueue.main.async {
                 self.FlashcardsCollectionView.reloadData()
-            //}
+                //}
+            }
+            
 
             //self.flashcards = self.applicationDelegate.dict_Flashcards as NSDictionary
             //self.words = (self.flashcards[self.setPassed] as! NSDictionary)
@@ -203,5 +210,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     }
     */
+    
+    func showAlertMessage(messageHeader header: String, messageBody body: String) {
+        
+        /*
+         Create a UIAlertController object; dress it up with title, message, and preferred style;
+         and store its object reference into local constant alertController
+         */
+        let alertController = UIAlertController(title: header, message: body, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // Create a UIAlertAction object and add it to the alert controller
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        // Present the alert controller
+        present(alertController, animated: true, completion: nil)
+    }
 
 }
