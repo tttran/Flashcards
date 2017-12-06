@@ -159,17 +159,33 @@ class WordsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+            
+            // Delete the identified movie at row
+            let val = (indexPath as NSIndexPath).row
+            var temp: NSMutableDictionary = words as! NSMutableDictionary
+            temp.removeObject(forKey: "\(listOfWords[val])")
+            applicationDelegate.dict_Flashcards.setValue(temp, forKey: setPassed)
+            flashcards = applicationDelegate.dict_Flashcards as NSDictionary
+            words = (flashcards[setPassed] as! NSDictionary)
+            listOfWords = words.allKeys as! [String]
+            listOfWords.sort{ $0 < $1 }
+            
+            
+            wordsTableView.reloadData()
+        }
+        
+        
+        
+        /*else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        } */
     }
-    */
+ 
 
     /*
     // Override to support rearranging the table view.
