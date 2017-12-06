@@ -441,7 +441,7 @@
             </objects>
             <point key="canvasLocation" x="779.20000000000005" y="-132.23388305847078"/>
         </scene>
-        <!--Test Mode View Controller-->
+        <!--Test Mode-->
         <scene sceneID="PZT-tk-GpG">
             <objects>
                 <viewController id="NbP-Jx-wqK" customClass="TestModeViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
@@ -450,11 +450,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNO-uJ-nk2" customClass="PickerView" customModule="Flashcards" customModuleProvider="target">
-                                <rect key="frame" x="66" y="101" width="243" height="198"/>
+                                <rect key="frame" x="43" y="101" width="289" height="198"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="243" id="exk-BG-BDW"/>
-                                    <constraint firstAttribute="height" constant="198" id="gpk-Kd-FuO"/>
+                                    <constraint firstAttribute="height" constant="198" id="Rs3-5E-JNy"/>
+                                    <constraint firstAttribute="width" constant="289" id="gyF-4Z-yiN"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -466,15 +466,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Njk-yt-JCS" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UNO-uJ-nk2" secondAttribute="trailing" constant="66" id="1fz-Jf-fx4"/>
-                            <constraint firstItem="UNO-uJ-nk2" firstAttribute="centerX" secondItem="PJ7-7f-LOc" secondAttribute="centerX" id="LYG-Hb-QGq"/>
-                            <constraint firstItem="UNO-uJ-nk2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Njk-yt-JCS" secondAttribute="leading" constant="66" id="SXb-JM-V9V"/>
-                            <constraint firstItem="UNO-uJ-nk2" firstAttribute="top" secondItem="Njk-yt-JCS" secondAttribute="top" constant="37" id="ycq-g7-Ymd"/>
+                            <constraint firstItem="UNO-uJ-nk2" firstAttribute="centerX" secondItem="PJ7-7f-LOc" secondAttribute="centerX" id="5HA-UY-iqS"/>
+                            <constraint firstItem="UNO-uJ-nk2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Njk-yt-JCS" secondAttribute="leading" constant="43" id="Dmn-KJ-ftj"/>
+                            <constraint firstItem="Njk-yt-JCS" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UNO-uJ-nk2" secondAttribute="trailing" constant="43" id="hKD-Pk-2Oo"/>
+                            <constraint firstItem="UNO-uJ-nk2" firstAttribute="top" secondItem="Njk-yt-JCS" secondAttribute="top" constant="37" id="hKd-P1-Q35"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Njk-yt-JCS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Zio-CF-1BY"/>
+                    <navigationItem key="navigationItem" title="Test Mode" id="816-uS-duz"/>
                     <connections>
+                        <outlet property="navigationTitle" destination="816-uS-duz" id="c9c-F1-H4I"/>
                         <outlet property="setPicker" destination="UNO-uJ-nk2" id="uMM-3Y-2q2"/>
                     </connections>
                 </viewController>
