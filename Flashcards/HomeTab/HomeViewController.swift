@@ -159,6 +159,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             //DispatchQueue.main.async {
             self.FlashcardsCollectionView.reloadData()
             //}
+        } else if segue.identifier == "DeleteSet" {
+            let editSetViewController: EditSetViewController = segue.source as! EditSetViewController
+            let setToDelete = flashcards[editSetViewController.setPickerView.selectedRow(inComponent: 0)]
+            print(setToDelete)
+            self.applicationDelegate.dict_Flashcards.removeObject(forKey: setToDelete)
+            flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
+            flashcards.sort{ $0 < $1 }
+            //DispatchQueue.main.async {
+            self.FlashcardsCollectionView.reloadData()
+            //}
         }
         
     }
