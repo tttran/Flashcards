@@ -154,7 +154,7 @@ extension HomeViewController {
     enum AddSet: String {
         case Add = "Add"
         case Create = "Create"
-        case Make = "Rearrange"
+        case Make = "Make"
         static let triggerWords = [Add, Create, Make]
     }
     
@@ -215,12 +215,33 @@ extension HomeViewController {
             let offset = commandWord.characters.count + 1
             let index = command.index(command.startIndex, offsetBy: offset)
             //target is the text that follows the triggerword
-            let target: String = command.substring(from: index)
+            var target: String = command.substring(from: index)
             switch input {
             case "AddSet":
                 print("add")
+                print(target)
+                self.applicationDelegate.dict_Flashcards.setValue([:] as NSMutableDictionary, forKey: target.capitalized)
+                flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
+                flashcards.sort{ $0 < $1 }
+                self.FlashcardsCollectionView.reloadData()
+                
             case "DeleteSet":
                 print("delete")
+                
+                for dict in applicationDelegate.dict_Flashcards {
+                    if target == (dict.key as! String).lowercased() {
+                        target = dict.key as! String
+                    }
+                }
+                
+                self.applicationDelegate.dict_Flashcards.removeObject(forKey: target)
+                flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
+                flashcards.sort{ $0 < $1 }
+                self.FlashcardsCollectionView.reloadData()
+                
+                
+                
+                
             default:
                 //voiceTextView.isHidden = true
                 //errorLabel.isHidden = false
