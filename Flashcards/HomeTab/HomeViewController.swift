@@ -47,9 +47,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         voiceButton?.addGestureRecognizer(rec)
         //voiceButton?.isHidden = true
         
-        
+        let editButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(HomeViewController.editSet(_:)))
         let addButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(HomeViewController.addSet(_:)))
         self.navigationItem.rightBarButtonItem = addButton
+        self.navigationItem.leftBarButtonItem = editButton
+        
         
         
     }
@@ -113,6 +115,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    @objc func editSet(_ sender: AnyObject) {
+        performSegue(withIdentifier: "EditSet", sender: self)
+        
+    }
+    
     @objc func addSet(_ sender: AnyObject) {
         
         performSegue(withIdentifier: "AddSet", sender: self)
@@ -136,6 +143,22 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             //self.listOfWords.sort{ $0 < $1 }
             
             
+        } else if segue.identifier == "RenameSet-Save" {
+            let renameSetViewController: RenameSetViewController = segue.source as! RenameSetViewController
+            let previousSetName = renameSetViewController.setToRename
+            
+            let newName = renameSetViewController.newNameTextField.text
+            
+            let a = applicationDelegate.dict_Flashcards as NSDictionary
+            let b = (a[previousSetName] as! NSDictionary)
+            self.applicationDelegate.dict_Flashcards.removeObject(forKey: previousSetName)
+            self.applicationDelegate.dict_Flashcards.setValue(b, forKey: newName!)
+            
+            flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
+            flashcards.sort{ $0 < $1 }
+            //DispatchQueue.main.async {
+            self.FlashcardsCollectionView.reloadData()
+            //}
         }
         
     }

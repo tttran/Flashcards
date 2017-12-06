@@ -130,11 +130,106 @@
                         <outlet property="voiceUIView" destination="Qfg-VY-Vxf" id="eEQ-jy-9s2"/>
                         <segue destination="oHU-4F-Z9B" kind="show" identifier="ShowWords" id="jbT-Ez-4HE"/>
                         <segue destination="yaP-Lf-RDd" kind="show" identifier="AddSet" id="ZTf-s3-bVf"/>
+                        <segue destination="MqS-5a-Ok2" kind="show" identifier="EditSet" id="DgX-5b-cGm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pT-G2-who" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1600.8" y="-133.5832083958021"/>
+        </scene>
+        <!--Edit Set-->
+        <scene sceneID="l7w-Kw-nXS">
+            <objects>
+                <viewController id="MqS-5a-Ok2" customClass="EditSetViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3M7-1d-I8V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9b-p0-wOO">
+                                <rect key="frame" x="0.0" y="153" width="375" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="MqS-5a-Ok2" id="Ihd-Kc-eoP"/>
+                                    <outlet property="delegate" destination="MqS-5a-Ok2" id="QVe-pl-qd0"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please select the set" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkL-ok-JeY">
+                                <rect key="frame" x="16" y="113" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xj9-oU-CQw">
+                                <rect key="frame" x="78" y="323" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Rename"/>
+                                <connections>
+                                    <action selector="renameSet:" destination="MqS-5a-Ok2" eventType="touchUpInside" id="IEI-Fv-vmw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krg-1A-uw3">
+                                <rect key="frame" x="218" y="323" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Delete"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="3tN-lu-OD7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Set" id="oTX-XL-AUm"/>
+                    <connections>
+                        <outlet property="setPickerView" destination="G9b-p0-wOO" id="hg0-OB-ioQ"/>
+                        <segue destination="UiG-UW-UYr" kind="show" identifier="RenameSet" id="EYZ-OO-4EB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gvm-rf-AuH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1600.8" y="-1684.4077961019491"/>
+        </scene>
+        <!--Rename Set-->
+        <scene sceneID="qx2-gB-jQk">
+            <objects>
+                <viewController id="UiG-UW-UYr" customClass="RenameSetViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y4v-EB-63b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the new name here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rGc-9a-X3F">
+                                <rect key="frame" x="16" y="167" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter the new name of the set" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2z-65-t1Q">
+                                <rect key="frame" x="16" y="138" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="KXf-me-W2X"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Rename Set" id="cQO-TH-mfN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="l9h-qQ-GR1">
+                            <connections>
+                                <segue destination="Fok-Xe-tZR" kind="unwind" identifier="RenameSet-Save" unwindAction="unwindToHomeViewControllerWithSegue:" id="txa-Uz-yGM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="newNameTextField" destination="rGc-9a-X3F" id="Ase-dJ-KOf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W7u-yY-8zj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Fok-Xe-tZR" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2432.8000000000002" y="-1684.4077961019491"/>
         </scene>
         <!--Add Set-->
         <scene sceneID="eWE-Ix-ivC">

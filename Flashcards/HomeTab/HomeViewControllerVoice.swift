@@ -18,8 +18,6 @@ extension HomeViewController {
         voiceUIView?.isHidden = false
     }
 
-    
-    
     /*
      * this function starts/stops recording when the button is held down/released
      */

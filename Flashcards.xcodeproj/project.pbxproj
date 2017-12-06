@@ -18,6 +18,8 @@
 		A12ABC6C1FC88AA0001C06D4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12ABC6B1FC88AA0001C06D4 /* HomeViewController.swift */; };
 		A12ABC6E1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12ABC6D1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift */; };
 		A151714B1FC8973000A0CDCF /* FlashcardsData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A151714A1FC8973000A0CDCF /* FlashcardsData.plist */; };
+		A15FFDA81FD84BE000BEBB81 /* EditSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15FFDA71FD84BE000BEBB81 /* EditSetViewController.swift */; };
+		A15FFDAA1FD84CBF00BEBB81 /* RenameSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15FFDA91FD84CBF00BEBB81 /* RenameSetViewController.swift */; };
 		A1FD1B7A1FD4823F00CD23C1 /* WordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD1B791FD4823F00CD23C1 /* WordsTableViewController.swift */; };
 		A1FD1B7C1FD498C900CD23C1 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD1B7B1FD498C900CD23C1 /* AddWordViewController.swift */; };
 		A1FD1B7E1FD49F9E00CD23C1 /* ViewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD1B7D1FD49F9E00CD23C1 /* ViewWordViewController.swift */; };
@@ -37,6 +39,8 @@
 		A12ABC6B1FC88AA0001C06D4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A12ABC6D1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A151714A1FC8973000A0CDCF /* FlashcardsData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FlashcardsData.plist; sourceTree = "<group>"; };
+		A15FFDA71FD84BE000BEBB81 /* EditSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSetViewController.swift; sourceTree = "<group>"; };
+		A15FFDA91FD84CBF00BEBB81 /* RenameSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameSetViewController.swift; sourceTree = "<group>"; };
 		A1FD1B791FD4823F00CD23C1 /* WordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsTableViewController.swift; sourceTree = "<group>"; };
 		A1FD1B7B1FD498C900CD23C1 /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		A1FD1B7D1FD49F9E00CD23C1 /* ViewWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWordViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 				A1FD1B7D1FD49F9E00CD23C1 /* ViewWordViewController.swift */,
 				A1FD1B7B1FD498C900CD23C1 /* AddWordViewController.swift */,
 				A1166B671FD712A600176812 /* AddSetViewController.swift */,
+				A15FFDA71FD84BE000BEBB81 /* EditSetViewController.swift */,
+				A15FFDA91FD84CBF00BEBB81 /* RenameSetViewController.swift */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -101,12 +107,20 @@
 				A151714A1FC8973000A0CDCF /* FlashcardsData.plist */,
 				A12ABC571FC887DB001C06D4 /* AppDelegate.swift */,
 				A1166B661FD7125D00176812 /* HomeTab */,
+				A15FFDA41FD848DC00BEBB81 /* Test Mode */,
 				A12ABC5D1FC887DB001C06D4 /* Main.storyboard */,
 				A12ABC601FC887DB001C06D4 /* Assets.xcassets */,
 				A12ABC621FC887DB001C06D4 /* LaunchScreen.storyboard */,
 				A12ABC651FC887DB001C06D4 /* Info.plist */,
 			);
 			path = Flashcards;
+			sourceTree = "<group>";
+		};
+		A15FFDA41FD848DC00BEBB81 /* Test Mode */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Test Mode";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +201,9 @@
 				A117E5481FCDA94700DFD7DC /* HomeViewControllerVoice.swift in Sources */,
 				A12ABC581FC887DB001C06D4 /* AppDelegate.swift in Sources */,
 				A1FD1B7C1FD498C900CD23C1 /* AddWordViewController.swift in Sources */,
+				A15FFDAA1FD84CBF00BEBB81 /* RenameSetViewController.swift in Sources */,
 				A12ABC6C1FC88AA0001C06D4 /* HomeViewController.swift in Sources */,
+				A15FFDA81FD84BE000BEBB81 /* EditSetViewController.swift in Sources */,
 				A1FD1B7A1FD4823F00CD23C1 /* WordsTableViewController.swift in Sources */,
 				A12ABC6E1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift in Sources */,
 			);
