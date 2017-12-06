@@ -119,7 +119,7 @@ extension HomeViewController {
         self.audioEngine.stop()
         self.recognitionRequest?.endAudio()
         self.recognitionTask?.finish()
-        //voiceCommandHandler()
+        voiceCommandHandler()
         
     }
     
@@ -147,5 +147,93 @@ extension HomeViewController {
         
     }
     
+    
+    /*
+     * this is the list of possible trigger words for sorting dossiers
+     */
+    enum AddSet: String {
+        case Add = "Add"
+        case Create = "Create"
+        case Make = "Rearrange"
+        static let triggerWords = [Add, Create, Make]
+    }
+    
+    /*
+     * this is the list of possible trigger words for logging out
+     */
+    enum DeleteSet: String {
+        case Delete = "Delete"
+        case Remove = "Remove"
+        static let triggerWords = [Delete, Remove]
+    }
+    
+    /*
+     * the voice commandHandler will find the trigger word and
+     * execute the proper actions according to the command
+     */
+    func voiceCommandHandler() {
+        var match = false
+        if (command != "") {
+            self.commandWord = command.components(separatedBy: " ").first!
+            
+            for trigger in AddSet.triggerWords {
+                if trigger.rawValue == commandWord {
+                    match = true
+                    voiceCommandExecutor(input: "AddSet")
+                    break
+                }
+            }
+            
+            if match == false {
+                for trigger in DeleteSet.triggerWords {
+                    if trigger.rawValue == commandWord {
+                        match = true
+                        voiceCommandExecutor(input: "DeleteSet")
+                        break
+                    }
+                }
+            }
+            
+            
+            
+            if match == false {
+               // voiceTextView.isHidden = true
+               // errorLabel.isHidden = false
+               // errorLabel.text = "Please try again."
+            }
+        }
+    }
+    
+    /*
+     * the voice command executor will execute the command
+     * based off of the trigger word
+     * @param input is the enum from the voice command handler
+     */
+    func voiceCommandExecutor(input: String) {
+        //find length of first word and add a whitespace
+        if command.components(separatedBy: " ").count > 1 {
+            let offset = commandWord.characters.count + 1
+            let index = command.index(command.startIndex, offsetBy: offset)
+            //target is the text that follows the triggerword
+            let target: String = command.substring(from: index)
+            switch input {
+            case "AddSet":
+                print("add")
+            case "DeleteSet":
+                print("delete")
+            default:
+                //voiceTextView.isHidden = true
+                //errorLabel.isHidden = false
+                //errorLabel.text = "Please try again."
+                print("Default")
+            }
+        
+        } else {
+            //voiceTextView.isHidden = true
+            //errorLabel.isHidden = false
+            //errorLabel.text = "Please try again."
+            print("okay")
+        }
+    }
     
 }

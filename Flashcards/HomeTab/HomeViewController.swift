@@ -20,6 +20,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var audioEngine = AVAudioEngine()
     var transcription = SFTranscription()
     var command = ""
+    var commandWord = ""
     var authorized = false
     @IBOutlet weak var voiceUIView = UIView()
     @IBOutlet weak var voiceCancelTransparentView = UIView()
