@@ -25,6 +25,8 @@ extension HomeViewController {
         if (!(voiceUIView?.isHidden)!) {
             if (gesture.state == .began) {
                 voiceButton?.alpha = 0.5
+                self.audioEngine.inputNode.removeTap(onBus: 0)
+                self.audioEngine.inputNode.reset()
                 startRecording()
             } else if (gesture.state == .ended){
                 voiceButton?.alpha = 1.0
@@ -44,7 +46,10 @@ extension HomeViewController {
             OperationQueue.main.addOperation {
                 switch authStatus {
                 case .authorized:
-                    try! self.getInput()
+                    if self.authorized == true {
+                        try! self.getInput()
+                    }
+                    self.authorized = true
                 case .denied:
                     self.voiceButton?.isHidden = true
                 case .restricted:
@@ -86,11 +91,12 @@ extension HomeViewController {
             }
             if error != nil || isFinal {
                 self.audioEngine.stop()
-                inputNode.removeTap(onBus: 0)
+                self.audioEngine.inputNode.removeTap(onBus: 0)
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
             }
         }
+        
         
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
@@ -99,6 +105,8 @@ extension HomeViewController {
         
         audioEngine.prepare()
         try audioEngine.start()
+    
+            
     }
     
     /*
@@ -106,13 +114,38 @@ extension HomeViewController {
      * using the voiceCommandHandler
      */
     func stopRecording() {
-        audioEngine.inputNode.removeTap(onBus: 0)
+        self.audioEngine.inputNode.removeTap(onBus: 0)
+        self.audioEngine.inputNode.reset()
         self.audioEngine.stop()
         self.recognitionRequest?.endAudio()
         self.recognitionTask?.finish()
         //voiceCommandHandler()
+        
     }
     
+    /*
+     * exits the voiceUI
+     */
+    @objc func cancelVoice() {
+        command = ""
+        self.voiceTextView?.text = command
+        self.voiceUIView?.isHidden = true
+        self.voiceCancelTransparentView?.isHidden = true
+    }
+    
+    
+    /*
+     * run function is called everytime the voice button is clicked (touchDown)
+     * this will make the voice UI components appear
+     */
+    @objc func run() {
+        voiceCancelTransparentView!.isHidden = false
+        voiceUIView?.isHidden = false
+        voiceTextView?.isHidden = false
+        command = ""
+        self.voiceTextView?.text = ""
+        
+    }
     
     
 }

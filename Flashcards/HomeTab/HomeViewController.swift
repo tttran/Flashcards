@@ -20,7 +20,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var audioEngine = AVAudioEngine()
     var transcription = SFTranscription()
     var command = ""
-   
+    var authorized = false
     @IBOutlet weak var voiceUIView = UIView()
     @IBOutlet weak var voiceCancelTransparentView = UIView()
     @IBOutlet weak var voiceTextView = UITextView()
@@ -40,11 +40,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         flashcards.sort{ $0 < $1 }
         voiceUIView?.isHidden = true
         voiceCancelTransparentView?.isHidden = true
+        voiceCancelTransparentView?.backgroundColor = UIColor.clear
+        let cancel = UITapGestureRecognizer(target: self, action: #selector(cancelVoice))
+        voiceCancelTransparentView?.addGestureRecognizer(cancel)
+        
+        
         //voice button modifications
         voiceButton?.layer.cornerRadius = 0.5 * (voiceButton?.bounds.size.width)!
+        
         let rec = UILongPressGestureRecognizer(target: self, action: #selector(record))
         rec.minimumPressDuration = 0.2
         voiceButton?.addGestureRecognizer(rec)
+        voiceButton?.addTarget(self, action: #selector(run), for: [.touchDown])
+
         //voiceButton?.isHidden = true
         
         let editButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(HomeViewController.editSet(_:)))
