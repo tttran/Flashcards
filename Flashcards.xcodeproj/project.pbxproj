@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4BB3F0551FD863DC0037FDC2 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3F0531FD863DC0037FDC2 /* PickerView.swift */; };
-		4BB3F0561FD863DC0037FDC2 /* TestModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3F0541FD863DC0037FDC2 /* TestModeViewController.swift */; };
 		4BB3F07F1FD877340037FDC2 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4BB3F07C1FD8772E0037FDC2 /* SF-Pro-Text-Regular.otf */; };
 		4BB3F0801FD877340037FDC2 /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4BB3F07D1FD877300037FDC2 /* SF-Pro-Text-Light.otf */; };
 		4BB3F0811FD877340037FDC2 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4BB3F07E1FD877310037FDC2 /* SF-Pro-Text-Semibold.otf */; };
 		4BB3F0831FD877900037FDC2 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 4BB3F0821FD877900037FDC2 /* Fonts */; };
 		4BB3F0851FD882BD0037FDC2 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3F0841FD882BD0037FDC2 /* TestingViewController.swift */; };
+		4BB3F0871FD885A90037FDC2 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3F0861FD885A90037FDC2 /* PickerView.swift */; };
+		4BB3F0891FD885C90037FDC2 /* TestModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3F0881FD885C90037FDC2 /* TestModeViewController.swift */; };
 		A1166B681FD712A600176812 /* AddSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1166B671FD712A600176812 /* AddSetViewController.swift */; };
 		A117E5481FCDA94700DFD7DC /* HomeViewControllerVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */; };
 		A117E54B1FCDABCD00DFD7DC /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A117E54A1FCDABC700DFD7DC /* Speech.framework */; };
@@ -33,13 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4BB3F0531FD863DC0037FDC2 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerView.swift; path = ../../../../../../Desktop/PickerView.swift; sourceTree = "<group>"; };
-		4BB3F0541FD863DC0037FDC2 /* TestModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestModeViewController.swift; path = ../../../../../../Desktop/TestModeViewController.swift; sourceTree = "<group>"; };
 		4BB3F07C1FD8772E0037FDC2 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		4BB3F07D1FD877300037FDC2 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		4BB3F07E1FD877310037FDC2 /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		4BB3F0821FD877900037FDC2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Flashcards/Fonts; sourceTree = "<group>"; };
 		4BB3F0841FD882BD0037FDC2 /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
+		4BB3F0861FD885A90037FDC2 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		4BB3F0881FD885C90037FDC2 /* TestModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModeViewController.swift; sourceTree = "<group>"; };
 		A1166B671FD712A600176812 /* AddSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSetViewController.swift; sourceTree = "<group>"; };
 		A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerVoice.swift; sourceTree = "<group>"; };
 		A117E54A1FCDABC700DFD7DC /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
@@ -76,9 +76,9 @@
 		4BB3F0521FD863CB0037FDC2 /* TestTab */ = {
 			isa = PBXGroup;
 			children = (
-				4BB3F0531FD863DC0037FDC2 /* PickerView.swift */,
-				4BB3F0541FD863DC0037FDC2 /* TestModeViewController.swift */,
 				4BB3F0841FD882BD0037FDC2 /* TestingViewController.swift */,
+				4BB3F0861FD885A90037FDC2 /* PickerView.swift */,
+				4BB3F0881FD885C90037FDC2 /* TestModeViewController.swift */,
 			);
 			path = TestTab;
 			sourceTree = "<group>";
@@ -235,13 +235,13 @@
 				A117E5481FCDA94700DFD7DC /* HomeViewControllerVoice.swift in Sources */,
 				A12ABC581FC887DB001C06D4 /* AppDelegate.swift in Sources */,
 				A1FD1B7C1FD498C900CD23C1 /* AddWordViewController.swift in Sources */,
-				4BB3F0551FD863DC0037FDC2 /* PickerView.swift in Sources */,
 				A15FFDAA1FD84CBF00BEBB81 /* RenameSetViewController.swift in Sources */,
 				A12ABC6C1FC88AA0001C06D4 /* HomeViewController.swift in Sources */,
+				4BB3F0871FD885A90037FDC2 /* PickerView.swift in Sources */,
 				A15FFDA81FD84BE000BEBB81 /* EditSetViewController.swift in Sources */,
 				A1FD1B7A1FD4823F00CD23C1 /* WordsTableViewController.swift in Sources */,
+				4BB3F0891FD885C90037FDC2 /* TestModeViewController.swift in Sources */,
 				A12ABC6E1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift in Sources */,
-				4BB3F0561FD863DC0037FDC2 /* TestModeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
