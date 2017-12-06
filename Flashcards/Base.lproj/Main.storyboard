@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,11 +33,11 @@
             <objects>
                 <viewController id="wPh-wj-JpS" customClass="HomeViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UnV-XG-Wkh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jAF-cN-cgS">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9hI-DL-Cti">
                                     <size key="itemSize" width="150" height="123"/>
@@ -47,7 +47,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="LNZ-G4-hOG" customClass="FlashcardsCollectionViewCell" customModule="Flashcards" customModuleProvider="target">
-                                        <rect key="frame" x="85" y="30" width="150" height="123"/>
+                                        <rect key="frame" x="32" y="30" width="150" height="123"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="123"/>
@@ -75,10 +75,9 @@
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgJ-hJ-f2a">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-VY-Vxf">
-                                <rect key="frame" x="0.0" y="395" width="320" height="124"/>
+                                <rect key="frame" x="0.0" y="494" width="375" height="124"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPg-oK-ctb">
                                         <rect key="frame" x="170" y="8" width="197" height="48"/>
@@ -93,13 +92,16 @@
                                     <constraint firstAttribute="height" constant="124" id="4Rg-9S-DUl"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SX-0l-iyW">
-                                <rect key="frame" x="157" y="449" width="5" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SX-0l-iyW">
+                                <rect key="frame" x="157" y="548" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="3nI-71-0CD"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="olq-YB-pqK"/>
+                                    <constraint firstAttribute="width" constant="60" id="3nI-71-0CD"/>
+                                    <constraint firstAttribute="height" constant="60" id="olq-YB-pqK"/>
                                 </constraints>
+                                <state key="normal" image="VoiceControl">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -109,14 +111,14 @@
                             <constraint firstItem="Qfg-VY-Vxf" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="El7-9z-xMh"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="JuH-J0-i55"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="bottom" secondItem="mzf-N4-GD9" secondAttribute="bottom" id="MYb-Vs-mZV"/>
-                            <constraint firstItem="1SX-0l-iyW" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" constant="157" id="RQ4-8M-dQc"/>
+                            <constraint firstItem="1SX-0l-iyW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mzf-N4-GD9" secondAttribute="leading" constant="157" id="RQ4-8M-dQc"/>
                             <constraint firstItem="Qfg-VY-Vxf" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="eJP-Cm-fUT"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="top" secondItem="mzf-N4-GD9" secondAttribute="top" id="lfW-E1-7YE"/>
                             <constraint firstItem="xgJ-hJ-f2a" firstAttribute="top" secondItem="mzf-N4-GD9" secondAttribute="top" id="o8g-fE-JJH"/>
                             <constraint firstItem="xgJ-hJ-f2a" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="pNN-js-PcE"/>
                             <constraint firstItem="xgJ-hJ-f2a" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="qto-tv-evt"/>
                             <constraint firstItem="mzf-N4-GD9" firstAttribute="bottom" secondItem="1SX-0l-iyW" secondAttribute="bottom" constant="10" id="s4c-ra-qHA"/>
-                            <constraint firstItem="mzf-N4-GD9" firstAttribute="trailing" secondItem="1SX-0l-iyW" secondAttribute="trailing" constant="158" id="tYR-wq-kED"/>
+                            <constraint firstItem="mzf-N4-GD9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1SX-0l-iyW" secondAttribute="trailing" constant="158" id="tYR-wq-kED"/>
                             <constraint firstItem="jAF-cN-cgS" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="ufP-01-EXa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mzf-N4-GD9"/>
@@ -142,11 +144,11 @@
             <objects>
                 <viewController id="MqS-5a-Ok2" customClass="EditSetViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3M7-1d-I8V">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9b-p0-wOO">
-                                <rect key="frame" x="0.0" y="153" width="320" height="162"/>
+                                <rect key="frame" x="0.0" y="153" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="MqS-5a-Ok2" id="Ihd-Kc-eoP"/>
@@ -198,7 +200,7 @@
             <objects>
                 <viewController id="UiG-UW-UYr" customClass="RenameSetViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y4v-EB-63b">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the new name here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rGc-9a-X3F">
@@ -240,7 +242,7 @@
             <objects>
                 <viewController id="yaP-Lf-RDd" customClass="AddSetViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Vk-1Q-SwM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter set name here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xbx-H1-tcJ">
@@ -282,15 +284,15 @@
             <objects>
                 <tableViewController id="oHU-4F-Z9B" customClass="WordsTableViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YQu-9T-74L">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordCell" id="pfX-nn-kQ2">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pfX-nn-kQ2" id="YLI-bo-nBa">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -321,7 +323,7 @@
             <objects>
                 <viewController id="fAO-SV-I55" customClass="ViewWordViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dzw-WK-Wyu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Part of Speech" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfJ-Bk-wcP">
@@ -385,7 +387,7 @@
             <objects>
                 <viewController id="ID0-4s-daK" customClass="AddWordViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nzN-Bc-Ne0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter word here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xZc-DM-urz">
@@ -429,7 +431,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="TabBarIcon-Home" id="4HX-Hb-3Jt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XtZ-9K-3OM">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -446,11 +448,11 @@
             <objects>
                 <viewController id="NbP-Jx-wqK" customClass="TestModeViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PJ7-7f-LOc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNO-uJ-nk2" customClass="PickerView" customModule="Flashcards" customModuleProvider="target">
-                                <rect key="frame" x="16" y="124" width="288" height="198"/>
+                                <rect key="frame" x="43.5" y="124" width="288" height="198"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="198" id="naO-tF-ffs"/>
@@ -464,7 +466,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a set to study!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ide-Lq-Dhi">
-                                <rect key="frame" x="15.5" y="95" width="289" height="21"/>
+                                <rect key="frame" x="43" y="95" width="289" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="N9G-5L-l73"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="289" id="OvP-pg-3Y8"/>
@@ -474,7 +476,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVg-2g-FEO">
-                                <rect key="frame" x="0.0" y="469" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="568" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7ka-nm-cMi"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="HSb-zx-m3W"/>
@@ -517,7 +519,7 @@
             <objects>
                 <viewController id="51B-zv-hr8" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JWQ-dg-LXb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="75U-LT-8OY"/>
@@ -534,7 +536,7 @@
                     <tabBarItem key="tabBarItem" title="Test" image="TabBarIcon-TestMode" id="DtQ-rE-D3z"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3ZJ-bL-BCW">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -550,5 +552,6 @@
     <resources>
         <image name="TabBarIcon-Home" width="30" height="30"/>
         <image name="TabBarIcon-TestMode" width="30" height="30"/>
+        <image name="VoiceControl" width="80" height="80"/>
     </resources>
 </document>
