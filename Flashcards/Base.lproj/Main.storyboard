@@ -441,21 +441,46 @@
             </objects>
             <point key="canvasLocation" x="779.20000000000005" y="-132.23388305847078"/>
         </scene>
-        <!--View Controller-->
+        <!--Test Mode View Controller-->
         <scene sceneID="PZT-tk-GpG">
             <objects>
-                <viewController id="NbP-Jx-wqK" sceneMemberID="viewController">
+                <viewController id="NbP-Jx-wqK" customClass="TestModeViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PJ7-7f-LOc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNO-uJ-nk2" customClass="PickerView" customModule="Flashcards" customModuleProvider="target">
+                                <rect key="frame" x="66" y="101" width="243" height="198"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="243" id="exk-BG-BDW"/>
+                                    <constraint firstAttribute="height" constant="198" id="gpk-Kd-FuO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Njk-yt-JCS" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UNO-uJ-nk2" secondAttribute="trailing" constant="66" id="1fz-Jf-fx4"/>
+                            <constraint firstItem="UNO-uJ-nk2" firstAttribute="centerX" secondItem="PJ7-7f-LOc" secondAttribute="centerX" id="LYG-Hb-QGq"/>
+                            <constraint firstItem="UNO-uJ-nk2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Njk-yt-JCS" secondAttribute="leading" constant="66" id="SXb-JM-V9V"/>
+                            <constraint firstItem="UNO-uJ-nk2" firstAttribute="top" secondItem="Njk-yt-JCS" secondAttribute="top" constant="37" id="ycq-g7-Ymd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Njk-yt-JCS"/>
                     </view>
                     <navigationItem key="navigationItem" id="Zio-CF-1BY"/>
+                    <connections>
+                        <outlet property="setPicker" destination="UNO-uJ-nk2" id="uMM-3Y-2q2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDx-3i-Rjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1601" y="588"/>
+            <point key="canvasLocation" x="1600.8" y="587.85607196401804"/>
         </scene>
         <!--Test Mode-->
         <scene sceneID="ghW-Px-zP1">
