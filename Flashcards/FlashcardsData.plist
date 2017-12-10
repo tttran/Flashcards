@@ -7,20 +7,23 @@
 		<key>Mitochondria</key>
 		<array>
 			<string>Mitochondria</string>
-			<string>The mitochondria is the powerhouse of the cell.</string>
+			<string>an organelle found in large numbers in most cells, in which the biochemical processes of respiration and energy production occur. It has a double membrane, the inner layer being folded inward to form layers (cristae).
+</string>
 			<string>Noun</string>
 		</array>
 		<key>Cytoplasm</key>
 		<array>
 			<string>Cytoplasm</string>
-			<string>stub</string>
-			<string>stubby</string>
+			<string>the material or protoplasm within a living cell, excluding the nucleus.
+</string>
+			<string>Noun</string>
 		</array>
 		<key>Ribosome</key>
 		<array>
 			<string>Ribosome</string>
-			<string>asdf</string>
-			<string>asdf</string>
+			<string>a minute particle consisting of RNA and associated proteins, found in large numbers in the cytoplasm of living cells. They bind messenger RNA and transfer RNA to synthesize polypeptides and proteins.
+</string>
+			<string>Noun</string>
 		</array>
 	</dict>
 	<key>Math</key>
@@ -28,19 +31,45 @@
 		<key>Addition</key>
 		<array>
 			<string>Addition</string>
-			<string>Combining numbers</string>
+			<string>the action or process of adding something to something else.
+</string>
 			<string>Noun</string>
 		</array>
 		<key>Subtraction</key>
 		<array>
 			<string>Subtraction</string>
-			<string>Take away values</string>
+			<string>the process or skill of taking one number or amount away from another.
+</string>
 			<string>Noun</string>
 		</array>
 		<key>Division</key>
 		<array>
 			<string>Division</string>
-			<string>Split into categories</string>
+			<string>the process of calculating the number of times one number is contained within one another.</string>
+			<string>Noun</string>
+		</array>
+	</dict>
+	<key>Organic Chemistry</key>
+	<dict>
+		<key>Amines</key>
+		<array>
+			<string>Amines</string>
+			<string>an organic compound derived from ammonia by replacement of one or more hydrogen atoms by organic groups.
+</string>
+			<string>Noun</string>
+		</array>
+		<key>Hydrogen</key>
+		<array>
+			<string>Hydrogen</string>
+			<string>a colorless, odorless, highly flammable gas, the chemical element of atomic number 1.
+</string>
+			<string>Noun</string>
+		</array>
+		<key>Reactants</key>
+		<array>
+			<string>Reactants</string>
+			<string>a substance that takes part in and undergoes change during a reaction.
+</string>
 			<string>Noun</string>
 		</array>
 	</dict>

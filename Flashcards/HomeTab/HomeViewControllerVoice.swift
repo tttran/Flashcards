@@ -220,11 +220,21 @@ extension HomeViewController {
             case "AddSet":
                 print("add")
                 print(target)
-                self.applicationDelegate.dict_Flashcards.setValue([:] as NSMutableDictionary, forKey: target.capitalized)
-                flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
-                flashcards.sort{ $0 < $1 }
-                self.FlashcardsCollectionView.reloadData()
+                let setName = target.capitalized
                 
+                if self.applicationDelegate.dict_Flashcards[setName] != nil {
+                    showAlertMessage(messageHeader: "Error!", messageBody: "The name already exists! Please enter a different one.")
+                } else {
+                    self.applicationDelegate.dict_Flashcards.setValue([:] as NSMutableDictionary, forKey: setName)
+                    flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
+                    flashcards.sort{ $0 < $1 }
+                    //DispatchQueue.main.async {
+                    self.FlashcardsCollectionView.reloadData()
+                    //}
+                }
+                
+                
+               
             case "DeleteSet":
                 print("delete")
                 
