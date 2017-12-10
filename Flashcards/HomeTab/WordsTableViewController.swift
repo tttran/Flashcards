@@ -133,6 +133,7 @@ class WordsTableViewController: UITableViewController {
                     self.words = (self.flashcards[self.setPassed] as! NSDictionary)
                     self.listOfWords = self.words.allKeys as! [String]
                     self.listOfWords.sort{ $0 < $1 }
+                    
                     DispatchQueue.main.async {
                         self.wordsTableView.reloadData()
                     }
@@ -190,7 +191,7 @@ class WordsTableViewController: UITableViewController {
             
             var temp2: NSMutableDictionary = words2 as! NSMutableDictionary
             temp2.removeObject(forKey: "\(listOfWords[val])")
-            applicationDelegate.dict_Images.setValue(temp, forKey: setPassed)
+            applicationDelegate.dict_Images.setValue(temp2, forKey: setPassed)
             
             flashcards = applicationDelegate.dict_Flashcards as NSDictionary
             words = (flashcards[setPassed] as! NSDictionary)
