@@ -18,6 +18,7 @@
 		A117E5481FCDA94700DFD7DC /* HomeViewControllerVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */; };
 		A117E54B1FCDABCD00DFD7DC /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A117E54A1FCDABC700DFD7DC /* Speech.framework */; };
 		A117E54D1FCDABEA00DFD7DC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A117E54C1FCDABE500DFD7DC /* AVFoundation.framework */; };
+		A11E73F61FDDBA58009CB117 /* WordImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = A11E73F51FDDBA58009CB117 /* WordImages.plist */; };
 		A12ABC581FC887DB001C06D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12ABC571FC887DB001C06D4 /* AppDelegate.swift */; };
 		A12ABC5F1FC887DB001C06D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12ABC5D1FC887DB001C06D4 /* Main.storyboard */; };
 		A12ABC611FC887DB001C06D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A12ABC601FC887DB001C06D4 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerVoice.swift; sourceTree = "<group>"; };
 		A117E54A1FCDABC700DFD7DC /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		A117E54C1FCDABE500DFD7DC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A11E73F51FDDBA58009CB117 /* WordImages.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WordImages.plist; sourceTree = "<group>"; };
 		A12ABC541FC887DB001C06D4 /* Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12ABC571FC887DB001C06D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A12ABC5E1FC887DB001C06D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				4BB3F07B1FD876D00037FDC2 /* Fonts */,
 				A151714A1FC8973000A0CDCF /* FlashcardsData.plist */,
+				A11E73F51FDDBA58009CB117 /* WordImages.plist */,
 				A12ABC571FC887DB001C06D4 /* AppDelegate.swift */,
 				A1166B661FD7125D00176812 /* HomeTab */,
 				4BB3F0521FD863CB0037FDC2 /* TestTab */,
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB3F0831FD877900037FDC2 /* Fonts in Resources */,
+				A11E73F61FDDBA58009CB117 /* WordImages.plist in Resources */,
 				A12ABC641FC887DB001C06D4 /* LaunchScreen.storyboard in Resources */,
 				4BB3F07F1FD877340037FDC2 /* SF-Pro-Text-Regular.otf in Resources */,
 				4BB3F0801FD877340037FDC2 /* SF-Pro-Text-Light.otf in Resources */,

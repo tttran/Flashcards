@@ -13,13 +13,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var dict_Flashcards: NSMutableDictionary = NSMutableDictionary()
+    var dict_Images: NSMutableDictionary = NSMutableDictionary()
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentDirectoryPath = paths[0] as String
+        
+       
+
+        
         let plistFilePathInDocumentDirectory = documentDirectoryPath + "/FlashcardsData.plist"
+        
+        
+        
         let dictionaryFromFile: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInDocumentDirectory)
 
         if let dictionaryFromFileInDocumentDirectory = dictionaryFromFile {
@@ -37,6 +45,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Store the object reference into the instance variable
             dict_Flashcards = dictionaryFromFileInMainBundle!
         }
+        
+        
+        
+        let paths2 = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentDirectoryPath2 = paths2[0] as String
+        let plistFilePathInDocumentDirectory2 = documentDirectoryPath2 + "/WordImages.plist"
+        let dictionaryFromFile2: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInDocumentDirectory2)
+        
+        //Repeat process for 2nd plist
+        if let dictionaryFromFileInDocumentary2 = dictionaryFromFile2 {
+            dict_Images = dictionaryFromFileInDocumentary2
+        } else {
+            let plistFilePathInMainBundle = Bundle.main.path(forResource: "WordImages", ofType: "plist")
+            let dictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInMainBundle!)
+            dict_Images = dictionaryFromFileInMainBundle!
+            
+        }
+        
+        
         return true
     }
 
@@ -50,6 +77,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let plistFilePathInDocumentDirectory = documentDirectoryPath + "/FlashcardsData.plist"
         
         dict_Flashcards.write(toFile: plistFilePathInDocumentDirectory, atomically: true)
+        
+        
+        
+        
+        
+        let paths2 = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentDirectoryPath2 = paths2[0] as String
+        
+        // Add the plist filename to the document directory path to obtain an absolute path to the plist filename
+        let plistFilePathInDocumentDirectory2 = documentDirectoryPath2 + "/MyFavoriteTheaters.plist"
+        
+        dict_Images.write(toFile: plistFilePathInDocumentDirectory2, atomically: true)
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {

@@ -211,6 +211,7 @@ class WordsTableViewController: UITableViewController {
         if segue.identifier == "ViewWord" {
             let viewWordViewController: ViewWordViewController = segue.destination as! ViewWordViewController
             viewWordViewController.wordInfoPassed = wordInfoToPass
+            viewWordViewController.set = setPassed
         }
     }
  

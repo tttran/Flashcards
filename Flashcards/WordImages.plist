@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Biology</key>
+	<dict>
+		<key>Mitochondria</key>
+		<data></data>
+		<key>Cytoplasm</key>
+		<data></data>
+		<key>Ribosome</key>
+		<data></data>
+	</dict>
+	<key>Math</key>
+	<dict>
+		<key>Addition</key>
+		<data></data>
+		<key>Subtraction</key>
+		<data></data>
+		<key>Division</key>
+		<data></data>
+	</dict>
+	<key>Organic Chemistry</key>
+	<dict>
+		<key>Amines</key>
+		<data></data>
+		<key>Hydrogen</key>
+		<data></data>
+		<key>Reactants</key>
+		<data></data>
+	</dict>
+	<key>Computer Science</key>
+	<dict>
+		<key>Abstraction</key>
+		<data></data>
+		<key>Polymorphism</key>
+		<data></data>
+		<key>Objects</key>
+		<data></data>
+	</dict>
+</dict>
+</plist>
