@@ -150,9 +150,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 //DispatchQueue.main.async {
                 self.FlashcardsCollectionView.reloadData()
                 //}
+                
+                self.applicationDelegate.dict_Images.setValue([:] as NSMutableDictionary, forKey: setName!)
             }
             
-
+            
+            
+            
             //self.flashcards = self.applicationDelegate.dict_Flashcards as NSDictionary
             //self.words = (self.flashcards[self.setPassed] as! NSDictionary)
             //self.listOfWords = self.words.allKeys as! [String]
@@ -172,9 +176,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
             flashcards.sort{ $0 < $1 }
-            //DispatchQueue.main.async {
             self.FlashcardsCollectionView.reloadData()
-            //}
+
+            
+            let c = applicationDelegate.dict_Images as NSDictionary
+            let d = (c[previousSetName] as! NSDictionary)
+            self.applicationDelegate.dict_Images.removeObject(forKey: previousSetName)
+            self.applicationDelegate.dict_Images.setValue(d, forKey: newName!)
+
+        
         } else if segue.identifier == "DeleteSet" {
             let editSetViewController: EditSetViewController = segue.source as! EditSetViewController
             let setToDelete = flashcards[editSetViewController.setPickerView.selectedRow(inComponent: 0)]
@@ -182,9 +192,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.applicationDelegate.dict_Flashcards.removeObject(forKey: setToDelete)
             flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
             flashcards.sort{ $0 < $1 }
-            //DispatchQueue.main.async {
             self.FlashcardsCollectionView.reloadData()
-            //}
+            
+            
+            self.applicationDelegate.dict_Images.removeObject(forKey: setToDelete)
+            
         }
         
     }

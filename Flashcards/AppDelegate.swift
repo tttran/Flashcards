@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let documentDirectoryPath2 = paths2[0] as String
         
         // Add the plist filename to the document directory path to obtain an absolute path to the plist filename
-        let plistFilePathInDocumentDirectory2 = documentDirectoryPath2 + "/MyFavoriteTheaters.plist"
+        let plistFilePathInDocumentDirectory2 = documentDirectoryPath2 + "/WordImages.plist"
         
         dict_Images.write(toFile: plistFilePathInDocumentDirectory2, atomically: true)
     }

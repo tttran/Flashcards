@@ -17,7 +17,12 @@ class WordsTableViewController: UITableViewController {
     var words: NSDictionary = NSDictionary()
     var flashcards: NSDictionary = NSDictionary()
     var wordInfoToPass = [String]()
+
     
+    var images: NSDictionary = NSDictionary()
+    var words2: NSDictionary = NSDictionary()
+    var listOfWords2 = [String]()
+
     let applicationDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     
@@ -36,11 +41,18 @@ class WordsTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItems = [self.editButtonItem, addButton]
         
         
+        
         flashcards = applicationDelegate.dict_Flashcards as NSDictionary
         words = (flashcards[setPassed] as! NSDictionary)
         listOfWords = words.allKeys as! [String]
         listOfWords.sort{ $0 < $1 }
         self.title = setPassed
+        
+        
+        images = applicationDelegate.dict_Images as NSDictionary
+        words2 = images[setPassed] as! NSDictionary
+        listOfWords2 = words2.allKeys as! [String]
+        listOfWords2.sort{ $0 < $1 }
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,10 +127,7 @@ class WordsTableViewController: UITableViewController {
                     print(partOfSpeech)
                     
                     let newWordArray = [word!, definition as! String, partOfSpeech] as [String]
-                    
                     self.words.setValue(newWordArray, forKey: word!)
-                    
-                    
                     self.applicationDelegate.dict_Flashcards.setValue(self.words, forKey: self.setPassed)
                     self.flashcards = self.applicationDelegate.dict_Flashcards as NSDictionary
                     self.words = (self.flashcards[self.setPassed] as! NSDictionary)
@@ -128,6 +137,12 @@ class WordsTableViewController: UITableViewController {
                         self.wordsTableView.reloadData()
                     }
 
+                    
+                    self.words2.setValue(NSData.self, forKey: word!)
+                    self.applicationDelegate.dict_Images.setValue(self.words2, forKey: self.setPassed)
+                    
+                    
+                    
                     
                 } else {
                     self.showAlertMessage(messageHeader: "No results found!", messageBody: "Please try a different word.")
@@ -171,6 +186,12 @@ class WordsTableViewController: UITableViewController {
             var temp: NSMutableDictionary = words as! NSMutableDictionary
             temp.removeObject(forKey: "\(listOfWords[val])")
             applicationDelegate.dict_Flashcards.setValue(temp, forKey: setPassed)
+            
+            
+            var temp2: NSMutableDictionary = words2 as! NSMutableDictionary
+            temp2.removeObject(forKey: "\(listOfWords[val])")
+            applicationDelegate.dict_Images.setValue(temp, forKey: setPassed)
+            
             flashcards = applicationDelegate.dict_Flashcards as NSDictionary
             words = (flashcards[setPassed] as! NSDictionary)
             listOfWords = words.allKeys as! [String]
@@ -178,6 +199,10 @@ class WordsTableViewController: UITableViewController {
             
             
             wordsTableView.reloadData()
+            
+            
+            
+            
         }
         
         
