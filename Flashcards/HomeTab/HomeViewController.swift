@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var voiceCancelTransparentView = UIView()
     @IBOutlet weak var voiceTextView = UITextView()
 
-    
+    var editButton: UIBarButtonItem = UIBarButtonItem()
     
     let applicationDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet var FlashcardsCollectionView: UICollectionView!
@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         voiceButton?.addTarget(self, action: #selector(run), for: [.touchDown])
 
         //voiceButton?.isHidden = true
-        let editButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(HomeViewController.editSet(_:)))
+        editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(HomeViewController.editSet(_:)))
         let addButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(HomeViewController.addSet(_:)))
         self.navigationItem.rightBarButtonItem = addButton
         self.navigationItem.leftBarButtonItem = editButton
@@ -127,8 +127,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @objc func editSet(_ sender: AnyObject) {
         performSegue(withIdentifier: "EditSet", sender: self)
-        //self.navigationItem.leftBarButtonItem = nil
-        //self.navigationItem.leftBarButtonItem = editButton
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.leftBarButtonItem = editButton
     }
     
     @objc func addSet(_ sender: AnyObject) {
