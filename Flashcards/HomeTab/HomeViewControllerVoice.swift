@@ -231,6 +231,8 @@ extension HomeViewController {
                     //DispatchQueue.main.async {
                     self.FlashcardsCollectionView.reloadData()
                     //}
+                    
+                    self.applicationDelegate.dict_Images.setValue([:] as NSMutableDictionary, forKey: setName)
                 }
                 
                 
@@ -249,7 +251,7 @@ extension HomeViewController {
                 flashcards.sort{ $0 < $1 }
                 self.FlashcardsCollectionView.reloadData()
                 
-                
+                self.applicationDelegate.dict_Images.removeObject(forKey: target)
                 
                 
             default:

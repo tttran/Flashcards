@@ -34,6 +34,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var flashcards = [String]()
     var setToPass = ""
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         FlashcardsCollectionView.delegate = self
@@ -55,7 +57,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         voiceButton?.addTarget(self, action: #selector(run), for: [.touchDown])
 
         //voiceButton?.isHidden = true
-        
         let editButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(HomeViewController.editSet(_:)))
         let addButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(HomeViewController.addSet(_:)))
         self.navigationItem.rightBarButtonItem = addButton
@@ -126,7 +127,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @objc func editSet(_ sender: AnyObject) {
         performSegue(withIdentifier: "EditSet", sender: self)
-        
+        //self.navigationItem.leftBarButtonItem = nil
+        //self.navigationItem.leftBarButtonItem = editButton
     }
     
     @objc func addSet(_ sender: AnyObject) {
@@ -136,6 +138,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     @IBAction func unwindToHomeViewController (segue : UIStoryboardSegue) {
+        
+
         if segue.identifier == "AddSet-Save" {
             let addSetViewController: AddSetViewController = segue.source as! AddSetViewController
             let setName = addSetViewController.addSetTextField.text
@@ -167,22 +171,31 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let renameSetViewController: RenameSetViewController = segue.source as! RenameSetViewController
             let previousSetName = renameSetViewController.setToRename
             
+            
             let newName = renameSetViewController.newNameTextField.text
             
-            let a = applicationDelegate.dict_Flashcards as NSDictionary
-            let b = (a[previousSetName] as! NSDictionary)
-            self.applicationDelegate.dict_Flashcards.removeObject(forKey: previousSetName)
-            self.applicationDelegate.dict_Flashcards.setValue(b, forKey: newName!)
+            if newName == "" {
+                showAlertMessage(messageHeader: "Error!", messageBody: "Please fill out all required fields.")
+            } else if self.applicationDelegate.dict_Flashcards[newName] != nil {
+                showAlertMessage(messageHeader: "Error!", messageBody: "The name already exists! Please enter a different one.")
+            } else {
+                let a = applicationDelegate.dict_Flashcards as NSDictionary
+                let b = (a[previousSetName] as! NSDictionary)
+                self.applicationDelegate.dict_Flashcards.removeObject(forKey: previousSetName)
+                self.applicationDelegate.dict_Flashcards.setValue(b, forKey: newName!)
+                
+                flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
+                flashcards.sort{ $0 < $1 }
+                self.FlashcardsCollectionView.reloadData()
+                
+                
+                let c = applicationDelegate.dict_Images as NSDictionary
+                let d = (c[previousSetName] as! NSDictionary)
+                self.applicationDelegate.dict_Images.removeObject(forKey: previousSetName)
+                self.applicationDelegate.dict_Images.setValue(d, forKey: newName!)
+            }
             
-            flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
-            flashcards.sort{ $0 < $1 }
-            self.FlashcardsCollectionView.reloadData()
-
             
-            let c = applicationDelegate.dict_Images as NSDictionary
-            let d = (c[previousSetName] as! NSDictionary)
-            self.applicationDelegate.dict_Images.removeObject(forKey: previousSetName)
-            self.applicationDelegate.dict_Images.setValue(d, forKey: newName!)
 
         
         } else if segue.identifier == "DeleteSet" {

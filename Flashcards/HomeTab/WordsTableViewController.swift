@@ -150,6 +150,55 @@ class WordsTableViewController: UITableViewController {
                 }
             }).resume()
 
+        } else if segue.identifier == "EditWord-Save" {
+            print("made it")
+            let editWordViewController: EditWordViewController = segue.source as! EditWordViewController
+
+            let term = editWordViewController.termTextField.text
+            let def = editWordViewController.defintionTextView.text
+            let pos = editWordViewController.partOfSpeechTextfield.text
+            
+            if term == "" || def == "" || pos == "" {
+                showAlertMessage(messageHeader: "Error!", messageBody: "Please fill out all fields!")
+            } else {
+                
+                let wordToEdit = editWordViewController.editInfoPassed[0]
+                var temp: NSMutableDictionary = words as! NSMutableDictionary
+                temp.removeObject(forKey: wordToEdit)
+                
+                
+                let newWordArray = [term, def, pos] as! [String]
+                
+                temp.setValue(newWordArray, forKey: editWordViewController.termTextField.text!)
+                
+                
+                self.applicationDelegate.dict_Flashcards.setValue(temp, forKey: self.setPassed)
+                self.flashcards = self.applicationDelegate.dict_Flashcards as NSDictionary
+                self.words = (self.flashcards[self.setPassed] as! NSDictionary)
+                self.listOfWords = self.words.allKeys as! [String]
+                self.listOfWords.sort{ $0 < $1 }
+                
+                DispatchQueue.main.async {
+                    self.wordsTableView.reloadData()
+                }
+                
+                var temp2: NSMutableDictionary = words2 as! NSMutableDictionary
+                var imageTemp = temp2[wordToEdit]
+                temp2.removeObject(forKey: wordToEdit)
+                temp2.setValue(imageTemp, forKey: term!)
+                
+                
+                // self.words2.setValue(NSData.self, forKey: word!)
+                self.applicationDelegate.dict_Images.setValue(temp2, forKey: self.setPassed)
+                images = applicationDelegate.dict_Images as NSDictionary
+                words2 = images[setPassed] as! NSDictionary
+                listOfWords2 = words2.allKeys as! [String]
+                listOfWords2.sort{ $0 < $1 }
+            }
+            
+            
+            
+            
         }
 
     }

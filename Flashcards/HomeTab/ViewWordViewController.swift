@@ -26,14 +26,16 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
     
     var wordInfoPassed = [Any]()
     
+    var editInfoToPass = [String]()
     
     override func viewDidLoad() {
         imageSet = applicationDelegate.dict_Images as NSDictionary
         listOfWords = imageSet[set] as! NSDictionary
         
        
-        //let imageData2: NSData = UIImagePNGRepresentation(#imageLiteral(resourceName: "AppIcon60"))! as NSData
-
+        let editButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(ViewWordViewController.editWord(_:)))
+        //self.navigationItem.rightBarButtonItem = addButton
+        self.navigationItem.rightBarButtonItem = editButton
 
         
         super.viewDidLoad()
@@ -55,7 +57,8 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
                 print(im.imageOrientation)
             }
         }
-        
+        self.navigationItem.title = wordInfoPassed[0] as? String
+    
         // Do any additional setup after loading the view.
     }
 
@@ -81,11 +84,7 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
             let saveImage = UIImagePNGRepresentation(image) as NSData?
             imageData = saveImage!
             listOfWords.setValue(imageData, forKey: termLabel.text!)
-            
-           // let modifiedWordArray = [termLabel.text, definitionTextView.text, partOfSpeechLabel.text, saveImage] as [Any]
-            
-            
-            //self.words.setValue(modifiedWordArray, forKey: termLabel.text!)
+
             self.applicationDelegate.dict_Images.setValue(listOfWords, forKey: self.set)
             imageSet = applicationDelegate.dict_Images as NSDictionary
             listOfWords = imageSet[set] as! NSDictionary
@@ -100,16 +99,27 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
 
     }
     
+    @objc func editWord(_ sender: AnyObject) {
+        performSegue(withIdentifier: "EditWord", sender: self)
+    }
     
-    /*
+    
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "EditWord" {
+            let editWordViewController: EditWordViewController = segue.destination as! EditWordViewController
+            editInfoToPass = [wordInfoPassed[0] as! String, wordInfoPassed[1] as! String, wordInfoPassed[2] as! String]
+            editWordViewController.editInfoPassed = editInfoToPass
+            
+        }
     }
-    */
+ 
     func imageRotatedByDegrees(oldImage: UIImage, deg degrees: CGFloat) -> UIImage {
         //Calculate the size of the rotated view's containing box for our drawing space
         let rotatedViewBox: UIView = UIView(frame: CGRect(x: 0, y: 0, width: oldImage.size.width, height: oldImage.size.height))
@@ -130,6 +140,5 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
         UIGraphicsEndImageContext()
         return newImage
     }
-    
 
 }

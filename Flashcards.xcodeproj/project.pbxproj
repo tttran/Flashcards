@@ -14,6 +14,7 @@
 		4BB3F0851FD882BD0037FDC2 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3F0841FD882BD0037FDC2 /* TestingViewController.swift */; };
 		4BB3F0871FD885A90037FDC2 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3F0861FD885A90037FDC2 /* PickerView.swift */; };
 		4BB3F0891FD885C90037FDC2 /* TestModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3F0881FD885C90037FDC2 /* TestModeViewController.swift */; };
+		A10AD2D51FDDFB7B00988040 /* EditWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AD2D41FDDFB7B00988040 /* EditWordViewController.swift */; };
 		A1166B681FD712A600176812 /* AddSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1166B671FD712A600176812 /* AddSetViewController.swift */; };
 		A117E5481FCDA94700DFD7DC /* HomeViewControllerVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */; };
 		A117E54B1FCDABCD00DFD7DC /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A117E54A1FCDABC700DFD7DC /* Speech.framework */; };
@@ -41,6 +42,7 @@
 		4BB3F0841FD882BD0037FDC2 /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
 		4BB3F0861FD885A90037FDC2 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		4BB3F0881FD885C90037FDC2 /* TestModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModeViewController.swift; sourceTree = "<group>"; };
+		A10AD2D41FDDFB7B00988040 /* EditWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWordViewController.swift; sourceTree = "<group>"; };
 		A1166B671FD712A600176812 /* AddSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSetViewController.swift; sourceTree = "<group>"; };
 		A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerVoice.swift; sourceTree = "<group>"; };
 		A117E54A1FCDABC700DFD7DC /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
@@ -107,6 +109,7 @@
 				A1166B671FD712A600176812 /* AddSetViewController.swift */,
 				A15FFDA71FD84BE000BEBB81 /* EditSetViewController.swift */,
 				A15FFDA91FD84CBF00BEBB81 /* RenameSetViewController.swift */,
+				A10AD2D41FDDFB7B00988040 /* EditWordViewController.swift */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10AD2D51FDDFB7B00988040 /* EditWordViewController.swift in Sources */,
 				A1FD1B7E1FD49F9E00CD23C1 /* ViewWordViewController.swift in Sources */,
 				A1166B681FD712A600176812 /* AddSetViewController.swift in Sources */,
 				4BB3F0851FD882BD0037FDC2 /* TestingViewController.swift in Sources */,
