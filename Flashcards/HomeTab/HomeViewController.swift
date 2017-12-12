@@ -132,14 +132,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     @objc func addSet(_ sender: AnyObject) {
-        
         performSegue(withIdentifier: "AddSet", sender: self)
-        
     }
     
     @IBAction func unwindToHomeViewController (segue : UIStoryboardSegue) {
         
-
         if segue.identifier == "AddSet-Save" {
             let addSetViewController: AddSetViewController = segue.source as! AddSetViewController
             let setName = addSetViewController.addSetTextField.text
@@ -151,15 +148,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.applicationDelegate.dict_Flashcards.setValue([:] as NSMutableDictionary, forKey: setName!)
                 flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
                 flashcards.sort{ $0 < $1 }
+                
+                //DispatchQueue.main.async {
+                    self.applicationDelegate.dict_Images.setValue([:] as NSMutableDictionary, forKey: setName!)
+                //}
+                
                 //DispatchQueue.main.async {
                 self.FlashcardsCollectionView.reloadData()
                 //}
-                
-                self.applicationDelegate.dict_Images.setValue([:] as NSMutableDictionary, forKey: setName!)
+                //print(applicationDelegate.dict_Flashcards)
+                //print(applicationDelegate.dict_Images)
             }
-            
-            
-            
             
             //self.flashcards = self.applicationDelegate.dict_Flashcards as NSDictionary
             //self.words = (self.flashcards[self.setPassed] as! NSDictionary)
@@ -170,7 +169,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         } else if segue.identifier == "RenameSet-Save" {
             let renameSetViewController: RenameSetViewController = segue.source as! RenameSetViewController
             let previousSetName = renameSetViewController.setToRename
-            
             
             let newName = renameSetViewController.newNameTextField.text
             
@@ -191,11 +189,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 let c = applicationDelegate.dict_Images as NSDictionary
                 let d = (c[previousSetName] as! NSDictionary)
+                //print(d)
                 self.applicationDelegate.dict_Images.removeObject(forKey: previousSetName)
                 self.applicationDelegate.dict_Images.setValue(d, forKey: newName!)
             }
-            
-            
 
         
         } else if segue.identifier == "DeleteSet" {
@@ -209,6 +206,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             
             self.applicationDelegate.dict_Images.removeObject(forKey: setToDelete)
+            print(applicationDelegate.dict_Images)
             
         }
         

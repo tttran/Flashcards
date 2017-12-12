@@ -19,17 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentDirectoryPath = paths[0] as String
+        let paths2 = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+
+
         
-       
+        let documentDirectoryPath = paths[0] as String
+        let documentDirectoryPath2 = paths2[0] as String
 
         
         let plistFilePathInDocumentDirectory = documentDirectoryPath + "/FlashcardsData.plist"
-        
+        let plistFilePathInDocumentDirectory2 = documentDirectoryPath2 + "/WordImages.plist"
+
         
         
         let dictionaryFromFile: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInDocumentDirectory)
+        let dictionaryFromFile2: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInDocumentDirectory2)
 
+        
+        
         if let dictionaryFromFileInDocumentDirectory = dictionaryFromFile {
             
             dict_Flashcards = dictionaryFromFileInDocumentDirectory
@@ -47,15 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-        
-        let paths2 = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentDirectoryPath2 = paths2[0] as String
-        let plistFilePathInDocumentDirectory2 = documentDirectoryPath2 + "/WordImages.plist"
-        let dictionaryFromFile2: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInDocumentDirectory2)
-        
         //Repeat process for 2nd plist
         if let dictionaryFromFileInDocumentary2 = dictionaryFromFile2 {
+            
             dict_Images = dictionaryFromFileInDocumentary2
+            
         } else {
             let plistFilePathInMainBundle = Bundle.main.path(forResource: "WordImages", ofType: "plist")
             let dictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: plistFilePathInMainBundle!)
@@ -78,19 +81,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         dict_Flashcards.write(toFile: plistFilePathInDocumentDirectory, atomically: true)
         
-        
-        
-        
-        
         let paths2 = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentDirectoryPath2 = paths2[0] as String
         
         // Add the plist filename to the document directory path to obtain an absolute path to the plist filename
         let plistFilePathInDocumentDirectory2 = documentDirectoryPath2 + "/WordImages.plist"
-        
         dict_Images.write(toFile: plistFilePathInDocumentDirectory2, atomically: true)
     }
-
+    
+/*
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
@@ -107,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+*/
 
 }
 

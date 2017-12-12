@@ -48,9 +48,12 @@ class WordsTableViewController: UITableViewController {
         listOfWords.sort{ $0 < $1 }
         self.title = setPassed
         
+        print(setPassed)
         
-        images = applicationDelegate.dict_Images as NSDictionary
-        words2 = images[setPassed] as! NSDictionary
+        images = applicationDelegate.dict_Images as NSMutableDictionary
+        //print(images)
+        //print(applicationDelegate.dict_Flashcards)
+        words2 = images[setPassed] as! NSMutableDictionary
         listOfWords2 = words2.allKeys as! [String]
         listOfWords2.sort{ $0 < $1 }
     }
@@ -137,9 +140,11 @@ class WordsTableViewController: UITableViewController {
                     DispatchQueue.main.async {
                         self.wordsTableView.reloadData()
                     }
-
+                    let defaultImage = self.imageRotatedByDegrees(oldImage: #imageLiteral(resourceName: "AppIcon1024"), deg: -90)
+                    let defaultData = UIImagePNGRepresentation(defaultImage) as NSData?
                     
-                    self.words2.setValue(NSData.self, forKey: word!)
+
+                    self.words2.setValue(defaultData, forKey: word!)
                     self.applicationDelegate.dict_Images.setValue(self.words2, forKey: self.setPassed)
                     
                     
@@ -306,4 +311,24 @@ class WordsTableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
 
+    func imageRotatedByDegrees(oldImage: UIImage, deg degrees: CGFloat) -> UIImage {
+        //Calculate the size of the rotated view's containing box for our drawing space
+        let rotatedViewBox: UIView = UIView(frame: CGRect(x: 0, y: 0, width: oldImage.size.width, height: oldImage.size.height))
+        let t: CGAffineTransform = CGAffineTransform(rotationAngle: degrees * CGFloat.pi / 180)
+        rotatedViewBox.transform = t
+        let rotatedSize: CGSize = rotatedViewBox.frame.size
+        //Create the bitmap context
+        UIGraphicsBeginImageContext(rotatedSize)
+        let bitmap: CGContext = UIGraphicsGetCurrentContext()!
+        //Move the origin to the middle of the image so we will rotate and scale around the center.
+        bitmap.translateBy(x: rotatedSize.width / 2, y: rotatedSize.height / 2)
+        //Rotate the image context
+        bitmap.rotate(by: (degrees * CGFloat.pi / 180))
+        //Now, draw the rotated/scaled image into the context
+        bitmap.scaleBy(x: 1.0, y: -1.0)
+        bitmap.draw(oldImage.cgImage!, in: CGRect(x: -oldImage.size.width / 2, y: -oldImage.size.height / 2, width: oldImage.size.width, height: oldImage.size.height))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
 }
