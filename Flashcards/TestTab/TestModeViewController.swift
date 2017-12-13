@@ -63,7 +63,8 @@ class TestModeViewController: UIViewController, PickerViewDataSource, PickerView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
+        flashcards.sort{ $0 < $1 }
         setPicker.reloadPickerView()
     }
     

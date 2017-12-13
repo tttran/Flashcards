@@ -206,7 +206,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             
             self.applicationDelegate.dict_Images.removeObject(forKey: setToDelete)
-            print(applicationDelegate.dict_Images)
+            //print(applicationDelegate.dict_Images)
             
         }
         
