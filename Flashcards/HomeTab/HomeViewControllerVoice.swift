@@ -197,7 +197,7 @@ extension HomeViewController {
             
             
             if match == false {
-               showAlertMessage(messageHeader: "Error!", messageBody: "Please try again with a valid command!")
+                showAlertMessage(messageHeader: "Error!", messageBody: "Please try again with a valid command!")
             }
         }
     }
