@@ -9,8 +9,9 @@
 import UIKit
 
 class AddWordViewController: UIViewController {
+   
+    //add outlet
     @IBOutlet var newWordTextField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +31,6 @@ class AddWordViewController: UIViewController {
     
     
     
-    
     @IBAction func userTappedBackground(sender: AnyObject) {
         /*
          "This method looks at the current view and its subview hierarchy for the text field that is
@@ -41,14 +41,6 @@ class AddWordViewController: UIViewController {
     }
 
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -10,15 +10,14 @@ import UIKit
 
 class WordsTableViewController: UITableViewController {
 
-
+    //variables to store data in the application delegate plist
     @IBOutlet weak var wordsTableView: UITableView!
     var setPassed = ""
     var listOfWords = [String]()
     var words: NSDictionary = NSDictionary()
     var flashcards: NSDictionary = NSDictionary()
     var wordInfoToPass = [String]()
-
-    
+    //image data storage variables
     var images: NSDictionary = NSDictionary()
     var words2: NSDictionary = NSDictionary()
     var listOfWords2 = [String]()
@@ -37,22 +36,18 @@ class WordsTableViewController: UITableViewController {
         //self.navigationItem.leftBarButtonItem = self.editButtonItem
 
         let addButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(WordsTableViewController.addWord(_:)))
-        //self.navigationItem.rightBarButtonItem = addButton
         self.navigationItem.rightBarButtonItems = [self.editButtonItem, addButton]
         
-        
-        
+        //storing the data in the variables
         flashcards = applicationDelegate.dict_Flashcards as NSDictionary
         words = (flashcards[setPassed] as! NSDictionary)
         listOfWords = words.allKeys as! [String]
         listOfWords.sort{ $0 < $1 }
         self.title = setPassed
-        
         print(setPassed)
         
+        //storing the data in the variables
         images = applicationDelegate.dict_Images as NSMutableDictionary
-        //print(images)
-        //print(applicationDelegate.dict_Flashcards)
         words2 = images[setPassed] as! NSMutableDictionary
         listOfWords2 = words2.allKeys as! [String]
         listOfWords2.sort{ $0 < $1 }
@@ -65,36 +60,38 @@ class WordsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    //only need one section
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
+    //returns the number of cells needed
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return listOfWords.count
     }
 
-    
+    //returns the cell in the table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WordCell", for: indexPath) as UITableViewCell
-        
         let rowNumber = (indexPath as NSIndexPath).row
         cell.textLabel!.text = listOfWords[rowNumber]
         return cell
     }
  
+    //add word segue
     @objc func addWord(_ sender: AnyObject) {
-        
         performSegue(withIdentifier: "AddWord", sender: self)
         
     }
     
+    //unwind segue for saving a word and editing a word
     @IBAction func unwindToWordsTableViewController (segue : UIStoryboardSegue) {
+        
+        //making the json call and saving the word into the table view
         if segue.identifier == "AddWord-Save" {
             let addWordViewController: AddWordViewController = segue.source as! AddWordViewController
-            //add code for words that don't work like misspelled words or no entry
-            
             let appId = "4dabee4a"
             let appKey = "138e7213268de1f1f77485f34dea3371"
             let language = "en"
@@ -113,10 +110,8 @@ class WordsTableViewController: UITableViewController {
                     let jsonData = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary {
                     let results = jsonData!["results"] as! NSArray
                     let lexicalEntries = results[0] as! NSDictionary
-                    //print(lexicalEntries)
-
                     let entries = lexicalEntries["lexicalEntries"] as! NSArray
-                    //print(entries[0])
+                    //traversing the json data to get the definition and part of speech
                     let a = entries[0] as! NSDictionary
                     let b = a["entries"] as! NSArray
                     let c = b[0] as! NSDictionary
@@ -137,26 +132,23 @@ class WordsTableViewController: UITableViewController {
                     self.listOfWords = self.words.allKeys as! [String]
                     self.listOfWords.sort{ $0 < $1 }
                     
+                    //updating the table view and assigning each word an image
                     DispatchQueue.main.async {
                         self.wordsTableView.reloadData()
                     }
                     let defaultImage = self.imageRotatedByDegrees(oldImage: #imageLiteral(resourceName: "AppIcon1024"), deg: -90)
                     let defaultData = UIImagePNGRepresentation(defaultImage) as NSData?
                     
-
                     self.words2.setValue(defaultData, forKey: word!)
                     self.applicationDelegate.dict_Images.setValue(self.words2, forKey: self.setPassed)
-                    
-                    
-                    
-                    
+
                 } else {
-                    self.showAlertMessage(messageHeader: "No results found!", messageBody: "Please try a different word.")
+                    self.showAlertMessage(messageHeader: "No results found!", messageBody: "Please try a valid/different word.")
                 }
             }).resume()
 
         } else if segue.identifier == "EditWord-Save" {
-            print("made it")
+            //editing word functionality
             let editWordViewController: EditWordViewController = segue.source as! EditWordViewController
 
             let term = editWordViewController.termTextField.text
@@ -168,7 +160,7 @@ class WordsTableViewController: UITableViewController {
             } else {
                 
                 let wordToEdit = editWordViewController.editInfoPassed[0]
-                var temp: NSMutableDictionary = words as! NSMutableDictionary
+                let temp: NSMutableDictionary = words as! NSMutableDictionary
                 temp.removeObject(forKey: wordToEdit)
                 
                 
@@ -176,7 +168,7 @@ class WordsTableViewController: UITableViewController {
                 
                 temp.setValue(newWordArray, forKey: editWordViewController.termTextField.text!)
                 
-                
+                //save new word into the plist
                 self.applicationDelegate.dict_Flashcards.setValue(temp, forKey: self.setPassed)
                 self.flashcards = self.applicationDelegate.dict_Flashcards as NSDictionary
                 self.words = (self.flashcards[self.setPassed] as! NSDictionary)
@@ -187,13 +179,12 @@ class WordsTableViewController: UITableViewController {
                     self.wordsTableView.reloadData()
                 }
                 
-                var temp2: NSMutableDictionary = words2 as! NSMutableDictionary
-                var imageTemp = temp2[wordToEdit]
+                //save new image into the plist for the corresponding word
+                let temp2: NSMutableDictionary = words2 as! NSMutableDictionary
+                let imageTemp = temp2[wordToEdit]
                 temp2.removeObject(forKey: wordToEdit)
                 temp2.setValue(imageTemp, forKey: term!)
                 
-                
-                // self.words2.setValue(NSData.self, forKey: word!)
                 self.applicationDelegate.dict_Images.setValue(temp2, forKey: self.setPassed)
                 images = applicationDelegate.dict_Images as NSDictionary
                 words2 = images[setPassed] as! NSDictionary
@@ -236,53 +227,26 @@ class WordsTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             
-            // Delete the identified movie at row
+            // Delete the identified word at row
             let val = (indexPath as NSIndexPath).row
-            var temp: NSMutableDictionary = words as! NSMutableDictionary
+            let temp: NSMutableDictionary = words as! NSMutableDictionary
             temp.removeObject(forKey: "\(listOfWords[val])")
             applicationDelegate.dict_Flashcards.setValue(temp, forKey: setPassed)
-            
-            
-            var temp2: NSMutableDictionary = words2 as! NSMutableDictionary
+            // Delete word image
+            let temp2: NSMutableDictionary = words2 as! NSMutableDictionary
             temp2.removeObject(forKey: "\(listOfWords[val])")
             applicationDelegate.dict_Images.setValue(temp2, forKey: setPassed)
-            
+            //reload the table
             flashcards = applicationDelegate.dict_Flashcards as NSDictionary
             words = (flashcards[setPassed] as! NSDictionary)
             listOfWords = words.allKeys as! [String]
             listOfWords.sort{ $0 < $1 }
-            
-            
             wordsTableView.reloadData()
-            
-            
-            
             
         }
         
         
-        
-        /*else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        } */
     }
- 
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
 
@@ -311,6 +275,7 @@ class WordsTableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
 
+    //rotate image function
     func imageRotatedByDegrees(oldImage: UIImage, deg degrees: CGFloat) -> UIImage {
         //Calculate the size of the rotated view's containing box for our drawing space
         let rotatedViewBox: UIView = UIView(frame: CGRect(x: 0, y: 0, width: oldImage.size.width, height: oldImage.size.height))

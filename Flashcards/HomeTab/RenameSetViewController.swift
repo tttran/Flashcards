@@ -9,12 +9,13 @@
 import UIKit
 
 class RenameSetViewController: UIViewController {
+    //renaming set variables used
     var setToRename = ""
     @IBOutlet var newNameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newNameTextField.text = setToRename
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,10 +27,7 @@ class RenameSetViewController: UIViewController {
         // Once the text field is no longer the first responder, the keyboard is removed
         sender.resignFirstResponder()
     }
-    
-    
-    
-    
+
     @IBAction func userTappedBackground(sender: AnyObject) {
         /*
          "This method looks at the current view and its subview hierarchy for the text field that is
@@ -39,15 +37,5 @@ class RenameSetViewController: UIViewController {
         view.endEditing(true)
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

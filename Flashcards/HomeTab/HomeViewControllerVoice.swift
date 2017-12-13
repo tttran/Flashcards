@@ -13,7 +13,7 @@ import AVFoundation
 
 extension HomeViewController {
 
-    
+    //let voice view appear
     func voiceUIViewAppear() {
         voiceUIView?.isHidden = false
     }
@@ -34,7 +34,6 @@ extension HomeViewController {
             }
         }
     }
-    
     
     /*
      * this fuctions requests authorization and uses the getInput method
@@ -60,7 +59,6 @@ extension HomeViewController {
             }
         }
     }
-    
     
     /*
      * this function gets the best transcription for when the user
@@ -96,17 +94,15 @@ extension HomeViewController {
                 self.recognitionTask = nil
             }
         }
-        
-        
+   
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
             self.recognitionRequest?.append(buffer)
         }
-        
+    
         audioEngine.prepare()
         try audioEngine.start()
-    
-            
+   
     }
     
     /*
@@ -133,7 +129,6 @@ extension HomeViewController {
         self.voiceCancelTransparentView?.isHidden = true
     }
     
-    
     /*
      * run function is called everytime the voice button is clicked (touchDown)
      * this will make the voice UI components appear
@@ -144,12 +139,10 @@ extension HomeViewController {
         voiceTextView?.isHidden = false
         command = ""
         self.voiceTextView?.text = ""
-        
     }
-    
-    
+
     /*
-     * this is the list of possible trigger words for sorting dossiers
+     * this is the list of possible trigger words for adding sets
      */
     enum AddSet: String {
         case Add = "Add"
@@ -159,7 +152,7 @@ extension HomeViewController {
     }
     
     /*
-     * this is the list of possible trigger words for logging out
+     * this is the list of possible trigger words for deleting sets
      */
     enum DeleteSet: String {
         case Delete = "Delete"
@@ -193,15 +186,12 @@ extension HomeViewController {
                     }
                 }
             }
-            
-            
-            
+
             if match == false {
                 showAlertMessage(messageHeader: "Error!", messageBody: "Please try again with a valid command!")
             }
         }
     }
-    
     /*
      * the voice command executor will execute the command
      * based off of the trigger word
@@ -219,52 +209,33 @@ extension HomeViewController {
                 print("add")
                 print(target)
                 let setName = target.capitalized
-                
                 if self.applicationDelegate.dict_Flashcards[setName] != nil {
                     showAlertMessage(messageHeader: "Error!", messageBody: "The name already exists! Please enter a different one.")
                 } else {
                     self.applicationDelegate.dict_Flashcards.setValue([:] as NSMutableDictionary, forKey: setName)
                     flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
                     flashcards.sort{ $0 < $1 }
-                    //DispatchQueue.main.async {
                     self.FlashcardsCollectionView.reloadData()
-                    //}
-                    
                     self.applicationDelegate.dict_Images.setValue([:] as NSMutableDictionary, forKey: setName)
                 }
-                
-                
-               
+            //deleting set
             case "DeleteSet":
                 print("delete")
-                
                 for dict in applicationDelegate.dict_Flashcards {
                     if target == (dict.key as! String).lowercased() {
                         target = dict.key as! String
                     }
                 }
-                
                 self.applicationDelegate.dict_Flashcards.removeObject(forKey: target)
                 flashcards = applicationDelegate.dict_Flashcards.allKeys as! [String]
                 flashcards.sort{ $0 < $1 }
                 self.FlashcardsCollectionView.reloadData()
-                
                 self.applicationDelegate.dict_Images.removeObject(forKey: target)
-                
-                
             default:
                 showAlertMessage(messageHeader: "Error!", messageBody: "Please try again.")
-                //voiceTextView.isHidden = true
-                //errorLabel.isHidden = false
-                //errorLabel.text = "Please try again."
             }
-        
         } else {
             showAlertMessage(messageHeader: "Error!", messageBody: "Please try again.")
-            //voiceTextView.isHidden = true
-            //errorLabel.isHidden = false
-            //errorLabel.text = "Please try again."
         }
     }
-    
 }

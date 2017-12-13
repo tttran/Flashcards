@@ -10,6 +10,7 @@ import UIKit
 
 class ViewWordViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    //data from the plist
     let applicationDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     var imageSet: NSDictionary = NSDictionary()
     var listOfWords: NSDictionary = NSDictionary()
@@ -18,26 +19,24 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
     var set = ""    
     var imagePicker: UIImagePickerController!
 
+    //outlets from the interface builder
     @IBOutlet var termLabel: UILabel!
     @IBOutlet var partOfSpeechLabel: UILabel!
     @IBOutlet var definitionTextView: UITextView!
-    
     @IBOutlet var wordImageView: UIImageView!
     
+    //info needed to populate data
     var wordInfoPassed = [Any]()
-    
     var editInfoToPass = [String]()
     
     override func viewDidLoad() {
         imageSet = applicationDelegate.dict_Images as NSDictionary
         listOfWords = imageSet[set] as! NSDictionary
         
-       
         let editButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(ViewWordViewController.editWord(_:)))
-        //self.navigationItem.rightBarButtonItem = addButton
         self.navigationItem.rightBarButtonItem = editButton
 
-        
+        //set up the text and the images
         super.viewDidLoad()
         termLabel.text = String(describing: wordInfoPassed[0])
         definitionTextView.text = String(describing: wordInfoPassed[1])
@@ -51,15 +50,12 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
             print(imm)
             if imm.count > 0 {
                 let im: UIImage = UIImage(data:imm, scale: 1.0)!
-                //let imageToDisplay = UIImage.init(cgImage: im as! CGImage, scale: im.scale, orientation: UIImageOrientation.down)
                 let newImage = imageRotatedByDegrees(oldImage: im, deg: 90)
-                wordImageView.image = newImage//ageToDisplay
+                wordImageView.image = newImage
                 print(im.imageOrientation)
             }
         }
         self.navigationItem.title = wordInfoPassed[0] as? String
-    
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,38 +63,33 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
+    //present the camera to take a picture
     @IBAction func takePicture(_ sender: Any) {
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
-        
         present(imagePicker, animated: true, completion: nil)
     }
     
-
+    //set the imageview to the picture taken and save the iamge to the plist
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            
             self.wordImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-
             let saveImage = UIImagePNGRepresentation(image) as NSData?
             imageData = saveImage!
             listOfWords.setValue(imageData, forKey: termLabel.text!)
-
             self.applicationDelegate.dict_Images.setValue(listOfWords, forKey: self.set)
             imageSet = applicationDelegate.dict_Images as NSDictionary
             listOfWords = imageSet[set] as! NSDictionary
-            
-            
+  
         } else {
             print("error")
         }
-        
         imagePicker.dismiss(animated: true, completion: nil)
-
 
     }
     
+    //edit word segue
     @objc func editWord(_ sender: AnyObject) {
         performSegue(withIdentifier: "EditWord", sender: self)
     }
@@ -120,6 +111,7 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
         }
     }
  
+    //rotating image function
     func imageRotatedByDegrees(oldImage: UIImage, deg degrees: CGFloat) -> UIImage {
         //Calculate the size of the rotated view's containing box for our drawing space
         let rotatedViewBox: UIView = UIView(frame: CGRect(x: 0, y: 0, width: oldImage.size.width, height: oldImage.size.height))

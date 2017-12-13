@@ -9,8 +9,8 @@
 import UIKit
 
 class AddSetViewController: UIViewController {
+    //add outlet
     @IBOutlet var addSetTextField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

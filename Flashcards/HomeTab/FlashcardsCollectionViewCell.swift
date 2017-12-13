@@ -10,6 +10,7 @@ import UIKit
 
 class FlashcardsCollectionViewCell: UICollectionViewCell {
 
+    //title label for each cell
     @IBOutlet var title: UILabel!
     override init(frame: CGRect) {
         super.init(frame: frame)

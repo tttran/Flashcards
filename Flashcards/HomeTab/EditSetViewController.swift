@@ -9,29 +9,25 @@
 import UIKit
 
 class EditSetViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    //edit set pickerview
     @IBOutlet var setPickerView: UIPickerView!
+    var setPickerData = [String]()
+    
     let applicationDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     var nameOfSet = ""
     
-    
+    //rename set segue
     @IBAction func renameSet(_ sender: Any) {
         nameOfSet = setPickerData[setPickerView.selectedRow(inComponent: 0)]
         performSegue(withIdentifier: "RenameSet", sender: self)
     }
-    
-    var setPickerData = [String]()
 
+    //set up pickerview
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        
         setPickerData = applicationDelegate.dict_Flashcards.allKeys as! [String]
         setPickerData.sort { $0 < $1 }
-        
-        
-        
         setPickerView.selectRow(Int(setPickerData.count / 2), inComponent: 0, animated: false)
     }
 
@@ -40,13 +36,11 @@ class EditSetViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Dispose of any resources that can be recreated.
     }
     
-
-    
-    
+    //only 1 component
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+    //set number of sets
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return setPickerData.count
     }
