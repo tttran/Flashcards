@@ -197,9 +197,7 @@ extension HomeViewController {
             
             
             if match == false {
-               // voiceTextView.isHidden = true
-               // errorLabel.isHidden = false
-               // errorLabel.text = "Please try again."
+               showAlertMessage(messageHeader: "Error!", messageBody: "Please try again with a valid command!")
             }
         }
     }
@@ -255,17 +253,17 @@ extension HomeViewController {
                 
                 
             default:
+                showAlertMessage(messageHeader: "Error!", messageBody: "Please try again.")
                 //voiceTextView.isHidden = true
                 //errorLabel.isHidden = false
                 //errorLabel.text = "Please try again."
-                print("Default")
             }
         
         } else {
+            showAlertMessage(messageHeader: "Error!", messageBody: "Please try again.")
             //voiceTextView.isHidden = true
             //errorLabel.isHidden = false
             //errorLabel.text = "Please try again."
-            print("okay")
         }
     }
     

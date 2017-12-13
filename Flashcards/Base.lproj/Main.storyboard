@@ -79,10 +79,13 @@
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-VY-Vxf">
                                 <rect key="frame" x="0.0" y="494" width="375" height="124"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPg-oK-ctb">
-                                        <rect key="frame" x="170" y="8" width="197" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" editable="NO" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPg-oK-ctb">
+                                        <rect key="frame" x="8" y="8" width="359" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="359" id="UjS-EJ-POj"/>
+                                            <constraint firstAttribute="height" constant="48" id="WE6-lo-S8m"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -90,6 +93,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="124" id="4Rg-9S-DUl"/>
+                                    <constraint firstItem="qPg-oK-ctb" firstAttribute="top" secondItem="Qfg-VY-Vxf" secondAttribute="top" constant="8" id="HL1-Wn-80S"/>
+                                    <constraint firstAttribute="trailing" secondItem="qPg-oK-ctb" secondAttribute="trailing" constant="8" id="bRC-hk-cVT"/>
+                                    <constraint firstItem="qPg-oK-ctb" firstAttribute="leading" secondItem="Qfg-VY-Vxf" secondAttribute="leading" constant="8" id="mTd-jy-CqP"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SX-0l-iyW">
@@ -106,18 +112,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="bottom" secondItem="mzf-N4-GD9" secondAttribute="bottom" id="0lP-Md-F4b"/>
                             <constraint firstItem="Qfg-VY-Vxf" firstAttribute="bottom" secondItem="mzf-N4-GD9" secondAttribute="bottom" id="Dz6-Wp-LHE"/>
                             <constraint firstItem="Qfg-VY-Vxf" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="El7-9z-xMh"/>
-                            <constraint firstItem="jAF-cN-cgS" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="JuH-J0-i55"/>
-                            <constraint firstItem="jAF-cN-cgS" firstAttribute="bottom" secondItem="mzf-N4-GD9" secondAttribute="bottom" id="MYb-Vs-mZV"/>
+                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="ab4-mb-oGK"/>
+                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="b5H-jX-s9o"/>
                             <constraint firstItem="Qfg-VY-Vxf" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="eJP-Cm-fUT"/>
-                            <constraint firstItem="jAF-cN-cgS" firstAttribute="top" secondItem="mzf-N4-GD9" secondAttribute="top" id="lfW-E1-7YE"/>
+                            <constraint firstItem="jAF-cN-cgS" firstAttribute="top" secondItem="mzf-N4-GD9" secondAttribute="top" id="g9F-J1-0fd"/>
+                            <constraint firstItem="jAF-cN-cgS" firstAttribute="bottom" secondItem="mzf-N4-GD9" secondAttribute="bottom" id="hz4-hc-Z4B"/>
+                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="top" secondItem="mzf-N4-GD9" secondAttribute="top" id="lcL-SR-DZq"/>
                             <constraint firstItem="1SX-0l-iyW" firstAttribute="centerX" secondItem="UnV-XG-Wkh" secondAttribute="centerX" id="mjx-my-GLQ"/>
-                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="top" secondItem="mzf-N4-GD9" secondAttribute="top" id="o8g-fE-JJH"/>
-                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="pNN-js-PcE"/>
-                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="qto-tv-evt"/>
-                            <constraint firstItem="jAF-cN-cgS" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="ufP-01-EXa"/>
+                            <constraint firstItem="jAF-cN-cgS" firstAttribute="leading" secondItem="mzf-N4-GD9" secondAttribute="leading" id="sxf-Lp-rHG"/>
+                            <constraint firstItem="jAF-cN-cgS" firstAttribute="trailing" secondItem="mzf-N4-GD9" secondAttribute="trailing" id="vo3-Wd-z1w"/>
+                            <constraint firstItem="xgJ-hJ-f2a" firstAttribute="bottom" secondItem="mzf-N4-GD9" secondAttribute="bottom" id="vrO-Hu-Baf"/>
                             <constraint firstItem="mzf-N4-GD9" firstAttribute="bottom" secondItem="1SX-0l-iyW" secondAttribute="bottom" constant="10" id="wq1-Rh-Log"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mzf-N4-GD9"/>
