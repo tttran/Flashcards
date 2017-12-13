@@ -24,7 +24,7 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
     @IBOutlet var partOfSpeechLabel: UILabel!
     @IBOutlet var definitionTextView: UITextView!
     @IBOutlet var wordImageView: UIImageView!
-    
+    @IBOutlet var takePictureButton: UIButton!
     //info needed to populate data
     var wordInfoPassed = [Any]()
     var editInfoToPass = [String]()
@@ -41,7 +41,6 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
         termLabel.text = String(describing: wordInfoPassed[0])
         definitionTextView.text = String(describing: wordInfoPassed[1])
         partOfSpeechLabel.text = String(describing: wordInfoPassed[2])
-        
         if (listOfWords[wordInfoPassed[0]] as? NSData == nil) {
             wordImageView.image = #imageLiteral(resourceName: "AppIcon60")
         } else {
@@ -56,6 +55,9 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
             }
         }
         self.navigationItem.title = wordInfoPassed[0] as? String
+        takePictureButton.layer.cornerRadius = 0.1 * (takePictureButton.bounds.size.width)
+        takePictureButton.layer.borderWidth = 1
+        takePictureButton.layer.borderColor = UIColor.white.cgColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,11 +96,7 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
         performSegue(withIdentifier: "EditWord", sender: self)
     }
     
-    
-    
-    
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -132,5 +130,4 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
         UIGraphicsEndImageContext()
         return newImage
     }
-
 }
