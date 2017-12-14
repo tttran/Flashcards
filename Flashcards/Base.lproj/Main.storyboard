@@ -810,8 +810,11 @@
                                     <constraint firstAttribute="width" constant="288" id="qxe-5T-NAZ"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <action selector="textFieldEditingChanged:" destination="51B-zv-hr8" eventType="editingChanged" id="6D2-bZ-rxt"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKW-vS-4Nl">
                                 <rect key="frame" x="16" y="197" width="288" height="5"/>
@@ -851,7 +854,7 @@
                                     <constraint firstAttribute="height" constant="42" id="d96-Hw-8In"/>
                                     <constraint firstAttribute="width" constant="288" id="duJ-lE-1TE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

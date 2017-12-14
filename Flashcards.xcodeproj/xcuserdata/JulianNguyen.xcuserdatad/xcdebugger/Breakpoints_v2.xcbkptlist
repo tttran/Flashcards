@@ -90,11 +90,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flashcards/TestTab/TestingViewController.swift"
-            timestampString = "534927217.188454"
+            timestampString = "534958529.9459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "nextButtonTapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Flashcards/TestTab/TestingViewController.swift"
+            timestampString = "534958529.946353"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "nextButtonTapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Flashcards/TestTab/TestingViewController.swift"
+            timestampString = "534958529.946654"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "nextButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,59 +138,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flashcards/TestTab/TestingViewController.swift"
-            timestampString = "534927217.190356"
+            timestampString = "534958529.946918"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "nextButtonTapped(_:)"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "textFieldDidBeginEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flashcards/TestTab/TestingViewController.swift"
-            timestampString = "534927217.191278"
+            timestampString = "534958529.947176"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "nextButtonTapped(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Flashcards/TestTab/TestingViewController.swift"
-            timestampString = "534927217.19176"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "nextButtonTapped(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Flashcards/TestTab/TestingViewController.swift"
-            timestampString = "534927217.19219"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "nextButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
