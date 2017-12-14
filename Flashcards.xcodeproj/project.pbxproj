@@ -80,9 +80,9 @@
 		4BB3F0521FD863CB0037FDC2 /* TestTab */ = {
 			isa = PBXGroup;
 			children = (
+				4BB3F0881FD885C90037FDC2 /* TestModeViewController.swift */,
 				4BB3F0841FD882BD0037FDC2 /* TestingViewController.swift */,
 				4BB3F0861FD885A90037FDC2 /* PickerView.swift */,
-				4BB3F0881FD885C90037FDC2 /* TestModeViewController.swift */,
 			);
 			path = TestTab;
 			sourceTree = "<group>";
