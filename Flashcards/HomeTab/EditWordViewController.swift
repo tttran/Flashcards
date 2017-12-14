@@ -22,6 +22,8 @@ class EditWordViewController: UIViewController, UITextViewDelegate {
         partOfSpeechTextfield.text = editInfoPassed[2]
         defintionTextView.text = editInfoPassed[1]
         self.navigationItem.title = "Edit \(editInfoPassed[0])"
+        defintionTextView.layer.cornerRadius = 0.03 * (defintionTextView.bounds.size.width)
+
     }
 
     override func didReceiveMemoryWarning() {

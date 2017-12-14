@@ -40,6 +40,10 @@ class ViewWordViewController: UIViewController, UINavigationControllerDelegate, 
         super.viewDidLoad()
         termLabel.text = String(describing: wordInfoPassed[0])
         definitionTextView.text = String(describing: wordInfoPassed[1])
+        definitionTextView.layer.borderWidth = 1
+        definitionTextView.layer.borderColor = UIColor.white.cgColor
+        definitionTextView.layer.cornerRadius = 0.03 * (definitionTextView.bounds.size.width)
+
         partOfSpeechLabel.text = String(describing: wordInfoPassed[2])
         if (listOfWords[wordInfoPassed[0]] as? NSData == nil) {
             wordImageView.image = #imageLiteral(resourceName: "AppIcon60")
