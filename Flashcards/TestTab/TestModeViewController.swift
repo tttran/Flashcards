@@ -108,7 +108,7 @@ class TestModeViewController: UIViewController, PickerViewDataSource, PickerView
         
         if highlighted {
             label.font = UIFont.systemFont(ofSize: 25.0, weight: UIFont.Weight.semibold)
-            label.textColor = view.tintColor
+            label.textColor = UIColor(red: 98/255, green: 123/255, blue: 180/255, alpha: 1.0)
         } else {
             label.font = UIFont.systemFont(ofSize: 15.0, weight: UIFont.Weight.light)
             label.textColor = UIColor.lightGray

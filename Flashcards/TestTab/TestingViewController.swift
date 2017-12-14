@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class TestingViewController: UIViewController, UITextFieldDelegate {
     
@@ -25,6 +26,7 @@ class TestingViewController: UIViewController, UITextFieldDelegate {
     var termsDict: NSDictionary = NSDictionary()
     var termDict: NSDictionary = NSDictionary()
     var listOfWords = [String]()
+    var randomizedListOfWords = [String]()
         
     var words: NSDictionary = NSDictionary()
     var wordInfoToPass = [String]()
@@ -32,6 +34,7 @@ class TestingViewController: UIViewController, UITextFieldDelegate {
     var termsCorrect:Int = 0
     var currentTermIndex:Int = 0
     var guessIsCorrect = false
+    let correctnessThreshold = 0.40
     
     @IBOutlet var nextTermButton: UIButton!
     @IBOutlet var enterTermTextField: UITextField!
@@ -54,12 +57,13 @@ class TestingViewController: UIViewController, UITextFieldDelegate {
         listOfWords = termsDict.allKeys as! [String]
         listOfWords.sort{ $0 < $1 }
         listOfWords.shuffle()
+        randomizedListOfWords = listOfWords
         
         termLabel.text = listOfWords[0]
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.ultraLight)]
         
-        self.navigationItem.title = String(termsCorrect) + "/" + String(listOfWords.count)
+        self.navigationItem.title = String(termsCorrect) + "/" + String(randomizedListOfWords.count)
         
         nextTermButton.backgroundColor = UIColor(red: 98/255, green: 123/255, blue: 180/255, alpha: 1.0)
         nextTermButton.isUserInteractionEnabled = false
@@ -107,7 +111,7 @@ class TestingViewController: UIViewController, UITextFieldDelegate {
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         
         // 1. Get the information of the first word from the randomized set.
-        let word = listOfWords[currentTermIndex]
+        let word = randomizedListOfWords[currentTermIndex]
         termLabel!.text = word
         wordInfoToPass = termsDict[word] as! [String]
         
@@ -116,26 +120,45 @@ class TestingViewController: UIViewController, UITextFieldDelegate {
         let levDistance = levenshtein(aStr: wordInfoToPass[1].lowercased(), bStr: userGuess!.lowercased())
         var levPercent = 0.00
         if (wordInfoToPass[1].count >= (userGuess?.count)!) {
-            levPercent = Double(levDistance) / Double(wordInfoToPass[1].count)
+            levPercent = 1 - (Double(levDistance) / Double(wordInfoToPass[1].count))
         } else if ((userGuess?.count)! > wordInfoToPass[1].count) {
             levPercent = Double(levDistance) / Double((userGuess?.count)!)
         }
-        if (levPercent >= 0.40) {
+        if (levPercent >= correctnessThreshold) {
             guessIsCorrect = true
         } else {
             guessIsCorrect = false
-        }
-
-        
-        if (currentTermIndex <= listOfWords.count - 1) {
-            currentTermIndex += 1
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
         
-        
-        
-        termsCorrect += 1
-        let progress = Float(termsCorrect)/Float(listOfWords.count)
-        progressBar.setProgress(progress, animated: true)
+        // 3. Decide whether or not to remove word from based on guessIsCorrect.
+        // If correct then remove the term from the beginning of the list.
+        if (guessIsCorrect) {
+            randomizedListOfWords.removeFirst(1)
+            
+            termsCorrect += 1
+            self.navigationItem.title = String(termsCorrect) + "/" + String(listOfWords.count)
+            let progress = Float(termsCorrect)/Float(listOfWords.count)
+            progressBar.setProgress(progress, animated: true)
+            
+            if (progress == 1.0) {
+                showYouWinMessage("You have correctly gone through all the terms.")
+            } else {
+                enterTermTextField.text = ""
+                nextTermButton.isUserInteractionEnabled = false
+                nextTermButton.backgroundColor = UIColor(red: 196.0/255.0, green: 206.0/255.0, blue: 227.0/255.0, alpha: 1.0)
+                termLabel!.text = randomizedListOfWords[currentTermIndex]
+            }
+        }
+        // If incorrect, then move the term back to the end of the array to be retested later.
+        else {
+            let reuseTerm = randomizedListOfWords.remove(at: 0)
+            randomizedListOfWords.insert(reuseTerm, at: randomizedListOfWords.count)
+            enterTermTextField.text = ""
+            nextTermButton.isUserInteractionEnabled = false
+            nextTermButton.backgroundColor = UIColor(red: 196.0/255.0, green: 206.0/255.0, blue: 227.0/255.0, alpha: 1.0)
+            termLabel!.text = randomizedListOfWords[currentTermIndex]
+        }
     }
     
     
@@ -200,5 +223,22 @@ class TestingViewController: UIViewController, UITextFieldDelegate {
         func rowCount() -> Int {
             return self.rows
         }
+    }
+    
+    func showYouWinMessage(_ winMessage: String) {
+        
+        let alert = UIAlertController(title: "Congratulations!", message: winMessage, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        
+        let when = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            alert.dismiss(animated: true, completion: nil)
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+    
+    }
+    
+    @objc func backAction(){
+        dismiss(animated: true, completion: nil)
     }
 }
