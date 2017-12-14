@@ -28,10 +28,12 @@ class TestModeViewController: UIViewController, PickerViewDataSource, PickerView
     
     let applicationDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var flashcardsDict: NSDictionary = NSDictionary()
     var flashcards = [String]()
     var setToPass:String = ""
     var selectedRow:Int = 0
-    
+    var termsDict: NSDictionary = NSDictionary()
+    var listOfWords = [String]()
     
     /*
      -----------------------------------
@@ -125,7 +127,38 @@ class TestModeViewController: UIViewController, PickerViewDataSource, PickerView
         selectedRow = setPicker.currentSelectedIndex
         setToPass = flashcards[selectedRow]
         
-        performSegue(withIdentifier: "StartTest", sender: self)
+        flashcardsDict = applicationDelegate.dict_Flashcards as NSDictionary
+        termsDict = (flashcardsDict[setToPass] as! NSDictionary)
+        listOfWords = termsDict.allKeys as! [String]
+        
+        if (listOfWords.count > 0) {
+            performSegue(withIdentifier: "StartTest", sender: self)
+        }
+        else {
+            showErrorMessage("Please go back and add terms to the set.")
+        }
+    }
+    
+    /*
+     -----------------------------
+     MARK: - Display Error Message
+     -----------------------------
+     */
+    func showErrorMessage(_ errorMessage: String) {
+        
+        /*
+         Create a UIAlertController object; dress it up with title, message, and preferred style;
+         and store its object reference into local constant alertController
+         */
+        let alertController = UIAlertController(title: "No Terms to Test!",
+                                                message: errorMessage,
+                                                preferredStyle: UIAlertControllerStyle.alert)
+        
+        // Create a UIAlertAction object and add it to the alert controller
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        // Present the alert controller
+        present(alertController, animated: true, completion: nil)
     }
     
     /*
