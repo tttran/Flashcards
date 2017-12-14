@@ -780,16 +780,17 @@
                         <outlet property="navigationTitle" destination="816-uS-duz" id="c9c-F1-H4I"/>
                         <outlet property="setPicker" destination="UNO-uJ-nk2" id="uMM-3Y-2q2"/>
                         <outlet property="startTestButton" destination="SVg-2g-FEO" id="5S9-Te-ZdW"/>
+                        <segue destination="51B-zv-hr8" kind="show" id="JGm-9J-jZK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDx-3i-Rjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1599.375" y="587.32394366197184"/>
         </scene>
-        <!--View Controller-->
+        <!--Testing View Controller-->
         <scene sceneID="7h2-Ne-6yf">
             <objects>
-                <viewController id="51B-zv-hr8" sceneMemberID="viewController">
+                <viewController id="51B-zv-hr8" customClass="TestingViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JWQ-dg-LXb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

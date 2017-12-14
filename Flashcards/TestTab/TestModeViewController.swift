@@ -115,5 +115,39 @@ class TestModeViewController: UIViewController, PickerViewDataSource, PickerView
         }
     }
     
+    /*
+     -----------------------------------
+     MARK: - Start Test Button Tapped
+     -----------------------------------
+     */
+    
+    @IBAction func startTestButtonTapped(_ sender: UIButton) {
+        selectedRow = setPicker.currentSelectedIndex
+        setToPass = flashcards[selectedRow]
+        
+        performSegue(withIdentifier: "StartTest", sender: self)
+    }
+    
+    /*
+     -------------------------
+     MARK: - Prepare For Segue
+     -------------------------
+     */
+    
+    // This method is called by the system whenever you invoke the method performSegue
+    // You never call this method. It is invoked by the system.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "StartTest" {
+            
+            // Obtain the object reference of the destination view controller
+            let testingViewController: TestingViewController = segue.destination as! TestingViewController
+            
+            // Pass the data object to the destination view controller
+            testingViewController.setPassed = setToPass
+            testingViewController.selectedRow = selectedRow
+        }
+    }
+    
 }
 
