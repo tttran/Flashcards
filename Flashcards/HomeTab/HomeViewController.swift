@@ -69,6 +69,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         voiceButton?.backgroundColor = UIColor(red: 98/255, green: 123/255, blue: 180/255, alpha: 1.0)
         voiceButton?.layer.borderWidth = 1
         voiceButton?.layer.borderColor = UIColor.white.cgColor
+        self.view.bringSubview(toFront: (voiceButton)!)
+
     }
 
     override func didReceiveMemoryWarning() {
