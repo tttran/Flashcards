@@ -13,6 +13,8 @@ class EditSetViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet var setPickerView: UIPickerView!
     var setPickerData = [String]()
     
+    @IBOutlet var deleteButton: UIButton!
+    @IBOutlet var renameButton: UIButton!
     let applicationDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     var nameOfSet = ""
     
@@ -29,6 +31,16 @@ class EditSetViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         setPickerData = applicationDelegate.dict_Flashcards.allKeys as! [String]
         setPickerData.sort { $0 < $1 }
         setPickerView.selectRow(Int(setPickerData.count / 2), inComponent: 0, animated: false)
+        
+        
+        deleteButton.layer.cornerRadius = 0.1 * (deleteButton.bounds.size.width)
+        deleteButton.layer.borderWidth = 1
+        deleteButton.layer.borderColor = UIColor.white.cgColor
+        
+        
+        renameButton.layer.cornerRadius = 0.1 * (renameButton.bounds.size.width)
+        renameButton.layer.borderWidth = 1
+        renameButton.layer.borderColor = UIColor.white.cgColor
     }
 
     override func didReceiveMemoryWarning() {

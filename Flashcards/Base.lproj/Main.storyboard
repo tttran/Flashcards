@@ -221,6 +221,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Edit Set" id="oTX-XL-AUm"/>
                     <connections>
+                        <outlet property="deleteButton" destination="krg-1A-uw3" id="mmB-jf-zkX"/>
+                        <outlet property="renameButton" destination="Xj9-oU-CQw" id="X6q-IH-CI7"/>
                         <outlet property="setPickerView" destination="G9b-p0-wOO" id="hg0-OB-ioQ"/>
                         <segue destination="UiG-UW-UYr" kind="show" identifier="RenameSet" id="EYZ-OO-4EB"/>
                     </connections>
@@ -397,45 +399,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Part of Speech" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfJ-Bk-wcP">
-                                <rect key="frame" x="21" y="177" width="283" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Part of Speech" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfJ-Bk-wcP">
+                                <rect key="frame" x="18.5" y="177" width="283" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="283" id="Bwk-Xw-ucq"/>
+                                    <constraint firstAttribute="height" constant="21" id="lCu-mr-osm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Definition" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zS-qz-Kbc">
-                                <rect key="frame" x="21" y="266" width="283" height="21"/>
+                                <rect key="frame" x="21" y="268" width="283" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mitochondria" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0b-ht-Yuj">
-                                <rect key="frame" x="21" y="118" width="283" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mitochondria" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0b-ht-Yuj">
+                                <rect key="frame" x="18.5" y="118" width="283" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="kRf-qz-dl5"/>
+                                    <constraint firstAttribute="width" constant="283" id="v7B-dK-Q1k"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Noun" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5m-0h-GfO">
-                                <rect key="frame" x="21" y="206" width="283" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noun" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5m-0h-GfO">
+                                <rect key="frame" x="18.5" y="200" width="283" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="iok-gE-CKW"/>
+                                    <constraint firstAttribute="width" constant="283" id="lox-bu-jSN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="The mitochondria is the powerhouse of the cell." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="itj-yB-LcM">
-                                <rect key="frame" x="16" y="296" width="288" height="205"/>
+                                <rect key="frame" x="16" y="293" width="288" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.38431372549019605" green="0.4823529411764706" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Term" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWZ-Ur-fKU">
-                                <rect key="frame" x="21" y="95" width="283" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Term" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWZ-Ur-fKU">
+                                <rect key="frame" x="18.5" y="95" width="283" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="N7n-1G-qAf"/>
+                                    <constraint firstAttribute="width" constant="283" id="xFY-00-VIY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -446,7 +460,7 @@
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRP-MT-p0W">
-                                <rect key="frame" x="179" y="264" width="115" height="30"/>
+                                <rect key="frame" x="179" y="263" width="115" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Take Picture!">
@@ -458,6 +472,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.38431372549019605" green="0.4823529411764706" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qWZ-Ur-fKU" firstAttribute="top" secondItem="Ex7-Ir-y3o" secondAttribute="top" constant="31" id="1FO-49-8C0"/>
+                            <constraint firstItem="qWZ-Ur-fKU" firstAttribute="centerX" secondItem="dzw-WK-Wyu" secondAttribute="centerX" id="8ZE-rP-b79"/>
+                            <constraint firstItem="OfJ-Bk-wcP" firstAttribute="centerX" secondItem="dzw-WK-Wyu" secondAttribute="centerX" id="JiK-EX-Acs"/>
+                            <constraint firstItem="q5m-0h-GfO" firstAttribute="centerX" secondItem="dzw-WK-Wyu" secondAttribute="centerX" id="PGT-SC-kDu"/>
+                            <constraint firstItem="r0b-ht-Yuj" firstAttribute="top" secondItem="qWZ-Ur-fKU" secondAttribute="bottom" constant="2" id="RNL-Ea-UAI"/>
+                            <constraint firstItem="OfJ-Bk-wcP" firstAttribute="top" secondItem="r0b-ht-Yuj" secondAttribute="bottom" constant="38" id="Xon-9F-n0I"/>
+                            <constraint firstItem="q5m-0h-GfO" firstAttribute="top" secondItem="OfJ-Bk-wcP" secondAttribute="bottom" constant="2" id="fsd-j4-2PP"/>
+                            <constraint firstItem="r0b-ht-Yuj" firstAttribute="centerX" secondItem="dzw-WK-Wyu" secondAttribute="centerX" id="p0h-5Q-3Nz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ex7-Ir-y3o"/>
                     </view>
                     <connections>
