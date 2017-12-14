@@ -63,7 +63,7 @@ class TestingViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.ultraLight)]
         
-        self.navigationItem.title = String(termsCorrect) + "/" + String(randomizedListOfWords.count)
+        self.navigationItem.title = setPassed + " - " + String(termsCorrect) + "/" + String(listOfWords.count)
         
         nextTermButton.backgroundColor = UIColor(red: 98/255, green: 123/255, blue: 180/255, alpha: 1.0)
         nextTermButton.isUserInteractionEnabled = false
@@ -137,7 +137,7 @@ class TestingViewController: UIViewController, UITextFieldDelegate {
             randomizedListOfWords.removeFirst(1)
             
             termsCorrect += 1
-            self.navigationItem.title = String(termsCorrect) + "/" + String(listOfWords.count)
+            self.navigationItem.title = setPassed + " - " + String(termsCorrect) + "/" + String(listOfWords.count)
             let progress = Float(termsCorrect)/Float(listOfWords.count)
             progressBar.setProgress(progress, animated: true)
             
