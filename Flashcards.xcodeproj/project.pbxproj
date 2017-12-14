@@ -14,6 +14,7 @@
 		4BB3F0851FD882BD0037FDC2 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3F0841FD882BD0037FDC2 /* TestingViewController.swift */; };
 		4BB3F0871FD885A90037FDC2 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3F0861FD885A90037FDC2 /* PickerView.swift */; };
 		4BB3F0891FD885C90037FDC2 /* TestModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3F0881FD885C90037FDC2 /* TestModeViewController.swift */; };
+		4BEFFBA71FE24EEA00A38BFC /* Array_Randomize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEFFBA61FE24EEA00A38BFC /* Array_Randomize.swift */; };
 		A10AD2D51FDDFB7B00988040 /* EditWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AD2D41FDDFB7B00988040 /* EditWordViewController.swift */; };
 		A1166B681FD712A600176812 /* AddSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1166B671FD712A600176812 /* AddSetViewController.swift */; };
 		A117E5481FCDA94700DFD7DC /* HomeViewControllerVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */; };
@@ -42,6 +43,7 @@
 		4BB3F0841FD882BD0037FDC2 /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
 		4BB3F0861FD885A90037FDC2 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		4BB3F0881FD885C90037FDC2 /* TestModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModeViewController.swift; sourceTree = "<group>"; };
+		4BEFFBA61FE24EEA00A38BFC /* Array_Randomize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array_Randomize.swift; sourceTree = "<group>"; };
 		A10AD2D41FDDFB7B00988040 /* EditWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWordViewController.swift; sourceTree = "<group>"; };
 		A1166B671FD712A600176812 /* AddSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSetViewController.swift; sourceTree = "<group>"; };
 		A117E5471FCDA94700DFD7DC /* HomeViewControllerVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerVoice.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		4BEFFBA51FE24EB700A38BFC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4BEFFBA61FE24EEA00A38BFC /* Array_Randomize.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A1166B661FD7125D00176812 /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +154,7 @@
 		A12ABC561FC887DB001C06D4 /* Flashcards */ = {
 			isa = PBXGroup;
 			children = (
+				4BEFFBA51FE24EB700A38BFC /* Extensions */,
 				4BB3F07B1FD876D00037FDC2 /* Fonts */,
 				A151714A1FC8973000A0CDCF /* FlashcardsData.plist */,
 				A11E73F51FDDBA58009CB117 /* WordImages.plist */,
@@ -250,6 +261,7 @@
 				A1FD1B7A1FD4823F00CD23C1 /* WordsTableViewController.swift in Sources */,
 				4BB3F0891FD885C90037FDC2 /* TestModeViewController.swift in Sources */,
 				A12ABC6E1FC89369001C06D4 /* FlashcardsCollectionViewCell.swift in Sources */,
+				4BEFFBA71FE24EEA00A38BFC /* Array_Randomize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

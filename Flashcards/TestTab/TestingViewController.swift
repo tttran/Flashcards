@@ -23,15 +23,19 @@ class TestingViewController: UIViewController {
     let applicationDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     var flashcards: NSDictionary = NSDictionary()
     var termsDict: NSDictionary = NSDictionary()
+    var termDict: NSDictionary = NSDictionary()
     var listOfWords = [String]()
         
     var words: NSDictionary = NSDictionary()
     var wordInfoToPass = [String]()
     
     var termsCorrect:Int = 0;
+    var currentTermIndex:Int = 0;
     
     @IBOutlet var nextTermButton: UIButton!
     @IBOutlet var enterTermTextField: UITextField!
+    @IBOutlet var progressBar: UIProgressView!
+    @IBOutlet var termLabel: UILabel!
     
     /*
      -----------------------------------
@@ -48,6 +52,9 @@ class TestingViewController: UIViewController {
         termsDict = (flashcards[setPassed] as! NSDictionary)
         listOfWords = termsDict.allKeys as! [String]
         listOfWords.sort{ $0 < $1 }
+        listOfWords.shuffle()
+        
+        termLabel.text = listOfWords[0]
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.ultraLight)]
         
@@ -64,4 +71,20 @@ class TestingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
+        
+        if (currentTermIndex <= listOfWords.count - 1) {
+            currentTermIndex += 1
+        }
+        
+        let word = listOfWords[currentTermIndex]
+        termLabel!.text = word
+        wordInfoToPass = termsDict[word] as! [String]
+        
+        
+        
+        termsCorrect += 1
+        let progress = Float(termsCorrect)/Float(listOfWords.count)
+        progressBar.setProgress(progress, animated: true)
+    }
 }
